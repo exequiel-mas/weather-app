@@ -7,7 +7,7 @@ const FooterCurrent = () => {
       <div className="currentDataText">
         <p>Today</p>
         <p>·</p>
-        <p>Fri. 5 Jun</p>
+        <p>Fri, 5 Jun</p>
       </div>
       <div className="locationData">
         <IoLocationSharp />

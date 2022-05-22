@@ -1,0 +1,20 @@
+@import './Variables.scss';
+
+.logoContainerCurrent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 326px; //Revisar para Full screen
+  background: linear-gradient(
+      $backgroundMenuGradient 100%,
+      $backgroundMenuGradient 100%
+    ),
+    url('../images/Cloud-background.png');
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  background-size: 150%;
+
+  .imgLogoCurrent {
+    width: 40%;
+  }
+}

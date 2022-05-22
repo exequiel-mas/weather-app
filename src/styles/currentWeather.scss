@@ -1,3 +1,5 @@
-.currentWeather{
-    background: #1E213A;
+@import './Variables.scss';
+.currentWeather {
+  background-color: $backgroundMenu;
+  height: 100vh;
 }
