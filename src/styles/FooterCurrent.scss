@@ -1,0 +1,15 @@
+@import '../styles/Variables.scss';
+
+.currentDataText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondaryTextColor;
+}
+
+.locationData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondaryTextColor;
+}
