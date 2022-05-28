@@ -7,6 +7,7 @@ const LogoCurrent = () => {
       <img
         className="imgLogoCurrent"
         src={require('../../images/LightCloud.png')}
+        alt="logo clima"
       />
     </div>
   );

@@ -1,8 +1,8 @@
-import NavBar from './NavBar';
+import NavBar from './navbar';
 import LogoCurrent from './LogoCurrent';
 import TempCurrent from './TempCurrent';
 import FooterCurrent from './FooterCurrent';
-import '../../styles/CurrentWeather.scss';
+import '../../styles/currentWeather.scss';
 
 function CurrentWeather() {
   return (

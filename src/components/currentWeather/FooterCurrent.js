@@ -1,6 +1,7 @@
 import React from 'react';
 import { IoLocationSharp } from 'react-icons/io5';
 import '../../styles/FooterCurrent.scss';
+
 const FooterCurrent = () => {
   return (
     <>
