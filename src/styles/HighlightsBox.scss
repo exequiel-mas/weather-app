@@ -1,0 +1,81 @@
+@import './Variables.scss';
+
+div.windDirection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: $primaryTextColor;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+}
+
+div.humidityMeter {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  font-size: 12px;
+  font-weight: 700;
+
+  div.percentajeValue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  div.meterBack {
+    margin: 2px 0px;
+    height: 8px;
+    background-color: $primaryTextColor;
+    display: flex;
+    border-radius: 4px;
+  }
+
+  div.percentaje {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+div.boxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $primaryTextColor;
+  background-color: $backgroundMenu;
+  padding: 22px 0px;
+  margin: 16px 0px;
+  max-width: 328px; //VER ESTA PROP CON MEDIAQUERIES
+  width: 100%;
+
+  div.valueContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 75px;
+
+    p.value {
+      font-weight: 700;
+      font-size: 64px;
+    }
+
+    p.unit {
+      font-weight: 500;
+      font-size: 40px;
+      margin-top: 10px;
+      margin-left: 8px;
+    }
+  }
+
+  h4 {
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
