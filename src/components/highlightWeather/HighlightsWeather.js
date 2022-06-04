@@ -1,6 +1,6 @@
 import ListOfHighlights from './ListOfHighlights';
 import React from 'react';
-import '../../styles/HighlightsWeather.scss';
+import '../../styles/highlightsWeather.scss';
 
 function HighlightsWeather() {
   return (
