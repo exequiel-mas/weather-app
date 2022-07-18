@@ -2,7 +2,7 @@ import NavBar from './navbar';
 import LogoCurrent from './LogoCurrent';
 import TempCurrent from './TempCurrent';
 import FooterCurrent from './FooterCurrent';
-import '../../styles/currentWeather.scss';
+import '../../styles/CurrentWeather.scss';
 
 function CurrentWeather() {
   return (

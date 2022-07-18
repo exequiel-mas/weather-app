@@ -1,23 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import ListOfPlaces from './ListOfPlaces';
 
-const SearchMenu = () => (
-  <>
-    <SearchMenuContainer>
-      <div className="iconContainer">
-        <IoMdClose color="white" />
-      </div>
-      <div className="inputContainer">
-        <IoMdSearch color="white" className="searchIcon" />
-        <input type="text" placeholder="search location" />
-        <button>Search</button>
-      </div>
-      <ListOfPlaces />
-    </SearchMenuContainer>
-  </>
-);
+const SearchMenu = () => {
+  const [inputData, setInputData] = useState('');
+  const [submitData, setSubmitData] = useState('');
+
+  function handleInputData(e) {
+    setInputData(e.target.value);
+    console.log(inputData);
+  }
+
+  function handleSubmitData() {
+    setSubmitData('Definir');
+  }
+
+  return (
+    <>
+      <SearchMenuContainer>
+        <div className="iconContainer">
+          <IoMdClose color="white" />
+        </div>
+        <div className="inputContainer">
+          <IoMdSearch color="white" className="searchIcon" />
+          <input
+            type="text"
+            placeholder="search location"
+            onChange={handleInputData}
+            name="inputData"
+            value={inputData}
+          />
+          <button onClick={handleSubmitData}>Search</button>
+        </div>
+        <ListOfPlaces />
+      </SearchMenuContainer>
+    </>
+  );
+};
 
 const SearchMenuContainer = styled.section`
   display: flex;

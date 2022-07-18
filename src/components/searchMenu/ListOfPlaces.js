@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LocationOption from './LocationOption';
+import { nanoid } from 'nanoid';
 
 const arrayPlaces = [
   { place: 'London' },
@@ -11,7 +12,7 @@ const arrayPlaces = [
 const ListOfPlaces = () => (
   <ListOfPlacesContainer>
     {arrayPlaces.map(el => (
-      <LocationOption place={el.place} />
+      <LocationOption key={nanoid()} place={el.place} />
     ))}
   </ListOfPlacesContainer>
 );

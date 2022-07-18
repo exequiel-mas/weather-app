@@ -55,7 +55,7 @@ const LocationArrowContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  heigth: 20px;
+  height: 20px;
   width: 20px;
   padding: 2px;
   transform: rotate(
