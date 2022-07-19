@@ -8,6 +8,7 @@ export default function useWeatherData(lat, lon) {
   const [loadingWeatherData, setLoading] = useState(false);
   const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
   useEffect(() => {
+    if (lat === 0 && lon === 0) return;
     (async function () {
       try {
         setLoading(true);

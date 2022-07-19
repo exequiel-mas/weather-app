@@ -4,22 +4,30 @@ import DaysWeather from './components/daysWeather/daysWeather';
 import HighlightWeather from './components/highlightWeather/HighlightsWeather';
 import SearchMenu from './components/searchMenu/SearchMenu';
 import { useGeoLocation } from 'use-geo-location'; // es un hook que viene con npm, te devuelve la latitud y la longitud
-import useCityCoords from './hooks/useCityCoords';
 import useWeatherData from './hooks/useWeatherData';
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
 function App() {
   // const { latitude, longitude } = useGeoLocation(); // De esta manera obtenemos la lat y lon de nuestra ubicacion
-  const { cityCoords, loadingCoords, errorCoords } = useCityCoords('London');
+
+  const [coords, setCoords] = useState({ lat: 0, lon: 0 });
   const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
-    cityCoords.lat,
-    cityCoords.lon
+    coords.lat,
+    coords.lon
   );
+  function handleCoords(lat, lon) {
+    setCoords({ lat, lon });
+  }
+
   return (
     <div className="App">
+      {weatherData &&
+        weatherData.map(el => <h1 key={nanoid()}>{el.visibility}</h1>)}
       <CurrentWeather />
       <DaysWeather />
       <HighlightWeather />
-      <SearchMenu />
+      <SearchMenu handleCoords={handleCoords} />
     </div>
   );
 }

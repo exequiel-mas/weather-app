@@ -2,18 +2,27 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import ListOfPlaces from './ListOfPlaces';
+import useCityCoords from '../../hooks/useCityCoords';
 
-const SearchMenu = () => {
+const SearchMenu = ({ handleCoords }) => {
   const [inputData, setInputData] = useState('');
-  const [submitData, setSubmitData] = useState('');
+  const [submitData, setSubmitData] = useState(null);
 
   function handleInputData(e) {
     setInputData(e.target.value);
-    console.log(inputData);
   }
-
   function handleSubmitData() {
-    setSubmitData('Definir');
+    setSubmitData(inputData);
+  }
+  const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
+
+  // const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
+  //   cityCoords.lat,
+  //   cityCoords.lon
+  // );
+
+  if (errorCoords) {
+    console.log(errorCoords);
   }
 
   return (
@@ -33,7 +42,8 @@ const SearchMenu = () => {
           />
           <button onClick={handleSubmitData}>Search</button>
         </div>
-        <ListOfPlaces />
+        {loadingCoords && <p>Loading...</p>}
+        <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords} />
       </SearchMenuContainer>
     </>
   );
@@ -87,6 +97,7 @@ const SearchMenuContainer = styled.section`
       font-weight: 600;
       font-size: 1rem;
       border: none;
+      cursor: pointer;
     }
   }
 `;

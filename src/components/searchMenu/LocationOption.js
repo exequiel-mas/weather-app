@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io';
 
-const LocationOption = ({ place }) => (
-  <OptionContainer>
-    <h3>{place}</h3>
+const LocationOption = ({ city, country, handleCoords,lat,lon }) => (
+  <OptionContainer onClick={event => handleCoords(lat,lon)}>
+    {city}, {country}
     <IoIosArrowForward />
   </OptionContainer>
 );
 
-const OptionContainer = styled.div`
+const OptionContainer = styled.button`
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: #1e213af2;
   display: flex;
   justify-content: space-between;
   align-items: center;

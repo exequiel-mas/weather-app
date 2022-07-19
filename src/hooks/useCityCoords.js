@@ -3,19 +3,17 @@ import axios from 'axios';
 
 export default function useCityCoords(place) {
   const apiKey = 'c14075cfcb8e6a63e07085ff4b3fb23c';
-  const [cityCoords, setCityCoords] = useState({ lat: 0, lon: 0 });
+  const [cityCoords, setCityCoords] = useState([]);
   const [errorCoords, setError] = useState(null);
   const [loadingCoords, setLoading] = useState(false);
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
   useEffect(() => {
+    if (place === null) return;
     (async function () {
       try {
         setLoading(true);
         const response = await axios.get(url);
-        setCityCoords({
-          lat: response.data[0].lat,
-          lon: response.data[0].lon,
-        });
+        setCityCoords(response.data);
       } catch (err) {
         setError(err);
       } finally {
