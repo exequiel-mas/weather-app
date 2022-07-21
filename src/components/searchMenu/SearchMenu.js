@@ -1,25 +1,18 @@
+import { useContext } from 'react';
+import { CoordsContext } from '../../context/CoordsContext';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IoMdClose, IoMdSearch } from 'react-icons/io';
 import ListOfPlaces from './ListOfPlaces';
-import useCityCoords from '../../hooks/useCityCoords';
 
-const SearchMenu = ({ handleCoords }) => {
-  const [inputData, setInputData] = useState('');
-  const [submitData, setSubmitData] = useState(null);
-
-  function handleInputData(e) {
-    setInputData(e.target.value);
-  }
-  function handleSubmitData() {
-    setSubmitData(inputData);
-  }
-  const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
-
+const SearchMenu = () => {
+  
   // const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
   //   cityCoords.lat,
   //   cityCoords.lon
   // );
+
+  const {errorCoords, handleInputData, inputData, handleSubmitData, loadingCoords, cityCoords, handleCoords} = useContext(CoordsContext);
 
   if (errorCoords) {
     console.log(errorCoords);
@@ -43,7 +36,7 @@ const SearchMenu = ({ handleCoords }) => {
           <button onClick={handleSubmitData}>Search</button>
         </div>
         {loadingCoords && <p>Loading...</p>}
-        <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords} />
+        <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords}/>
       </SearchMenuContainer>
     </>
   );

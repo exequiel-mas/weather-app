@@ -2,11 +2,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function useCityCoords(place) {
+  
   const apiKey = 'c14075cfcb8e6a63e07085ff4b3fb23c';
+  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
+  
   const [cityCoords, setCityCoords] = useState([]);
   const [errorCoords, setError] = useState(null);
   const [loadingCoords, setLoading] = useState(false);
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
+
   useEffect(() => {
     if (place === null) return;
     (async function () {
