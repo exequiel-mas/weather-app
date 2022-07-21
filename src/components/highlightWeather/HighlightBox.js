@@ -1,8 +1,8 @@
 import React from 'react';
 import { TiLocationArrow } from 'react-icons/ti';
 import styled from 'styled-components';
-import { css } from 'styled-components';
 import '../../styles/HighlightsBox.scss';
+import { getWindPos } from '../../utils/weatherConversion';
 
 const HighlightBox = ({ type, title, value, unit, windP }) => (
   <div className="boxContainer">
@@ -21,7 +21,7 @@ const WindDirection = ({ windP }) => (
     <LocationArrowContainer windP={windP}>
       <TiLocationArrow />
     </LocationArrowContainer>
-    <p>WSW</p>
+    <p>{getWindPos(windP)}</p>
   </div>
 );
 
@@ -58,28 +58,7 @@ const LocationArrowContainer = styled.div`
   height: 20px;
   width: 20px;
   padding: 2px;
-  transform: rotate(
-    ${props => {
-      switch (props.windP) {
-        case 'northEast':
-          return '0deg';
-        case 'north':
-          return '45deg';
-        case 'northWest':
-          return '90deg';
-        case 'west':
-          return '135deg';
-        case 'southWest':
-          return '180deg';
-        case 'south':
-          return '225deg';
-        case 'southEast':
-          return '270deg';
-        case 'east':
-          return '315deg';
-      }
-    }}
-  );
+  transform: rotate(${props => props.windP - 45} + 'deg');
 `;
 
 export default HighlightBox;

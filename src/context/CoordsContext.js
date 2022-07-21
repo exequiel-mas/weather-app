@@ -1,55 +1,61 @@
-import { createContext, useState } from "react";
-import useWeatherData from "../hooks/useWeatherData";
-import useCityCoords from "../hooks/useCityCoords";
+import { createContext, useState } from 'react';
+import useWeatherData from '../hooks/useWeatherData';
+import useCityCoords from '../hooks/useCityCoords';
+import { useGeoLocation } from 'use-geo-location';
+
 const CoordsContext = createContext();
 
+const CoordsContextProvider = ({ children }) => {
+  const { latitude, longitude } = useGeoLocation();
+  const [coords, setCoords] = useState({ lat: latitude, lon: longitude });
+  const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
+    coords.lat,
+    coords.lon
+  );
 
-const CoordsContextProvider = ({children}) =>{
+  function handleCoords(lat, lon) {
+    setCoords({ lat, lon });
+  }
+  /*--------------------- */
 
-    const [coords, setCoords] = useState({ lat: 0, lon: 0 });
+  const [inputData, setInputData] = useState('');
+  const [submitData, setSubmitData] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(0);
 
-    const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
-      coords.lat,
-      coords.lon
-    );
-  
-    function handleCoords(lat, lon) {
-      setCoords({ lat, lon });
-    }
-    /*--------------------- */
+  function handleSelectedDay(index) {
+    setSelectedDay(index);
+  }
 
-    const [inputData, setInputData] = useState('');
-    const [submitData, setSubmitData] = useState(null);
-  
-    function handleInputData(e) {
-      setInputData(e.target.value);
-    }
-    function handleSubmitData() {
-      setSubmitData(inputData);
-    }
-    const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
+  function handleInputData(e) {
+    setInputData(e.target.value);
+  }
+  function handleSubmitData() {
+    setSubmitData(inputData);
+  }
 
-    const variables = {
-        weatherData, 
-        errorWeatherData, 
-        loadingWeatherData, 
-        handleCoords, 
-        inputData, 
-        submitData, 
-        cityCoords, 
-        loadingCoords, 
-        errorCoords, 
-        handleInputData, 
-        handleSubmitData
-    }
+  const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
 
-    return(
-        <CoordsContext.Provider value={variables}>
-            {children}
-        </CoordsContext.Provider>
-    )
-}
+  const variables = {
+    weatherData,
+    errorWeatherData,
+    loadingWeatherData,
+    handleCoords,
+    inputData,
+    submitData,
+    cityCoords,
+    loadingCoords,
+    errorCoords,
+    handleInputData,
+    handleSubmitData,
+    selectedDay,
+    handleSelectedDay,
+  };
 
-export {CoordsContext, CoordsContextProvider};
+  return (
+    <CoordsContext.Provider value={variables}>
+      {children}
+    </CoordsContext.Provider>
+  );
+};
 
-
+export { CoordsContext, CoordsContextProvider };
