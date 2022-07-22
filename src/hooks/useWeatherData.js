@@ -20,7 +20,9 @@ export default function useWeatherData(lat, lon) {
       try {
         setLoading(true);
         const response = await axios.get(url);
-        setWeatherData(response.data.list.slice(0, 5));
+        setWeatherData(
+          response.data.list.filter((timestamp, index) => index % 7 === 0)
+        );
       } catch (err) {
         setError(err);
       } finally {
