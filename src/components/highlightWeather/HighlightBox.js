@@ -2,28 +2,35 @@ import React from 'react';
 import { TiLocationArrow } from 'react-icons/ti';
 import styled from 'styled-components';
 import '../../styles/HighlightsBox.scss';
-import { getWindPos } from '../../utils/weatherConversion';
+import useWindPos from '../../hooks/useWindPos';
 
-const HighlightBox = ({ type, title, value, unit, windP }) => (
-  <div className="boxContainer">
-    <h4>{title}</h4>
-    <div className="valueContainer">
-      <p className="value">{value}</p>
-      <p className="unit">{unit}</p>
+const HighlightBox = ({ type, title, value, unit, windP }) => {
+  const { windDirection, angleRotation } = useWindPos(windP);
+  return (
+    <div className="boxContainer">
+      <h4>{title}</h4>
+      <div className="valueContainer">
+        <p className="value">{value}</p>
+        <p className="unit">{unit}</p>
+      </div>
+      {type === 'wind' && (
+        <WindDirection angle={angleRotation} windP={windDirection} />
+      )}
+      {type === 'humidity' && <HumidityMeter value={value} />}
     </div>
-    {type === 'wind' ? <WindDirection windP={windP} /> : null}
-    {type === 'humidity' ? <HumidityMeter value={value} /> : null}
-  </div>
-);
+  );
+};
 
-const WindDirection = ({ windP }) => (
-  <div className="windDirection">
-    <LocationArrowContainer windP={windP}>
-      <TiLocationArrow />
-    </LocationArrowContainer>
-    <p>{getWindPos(windP)}</p>
-  </div>
-);
+const WindDirection = ({ windP, angle }) => {
+  return (
+    <div className="windDirection">
+      <LocationArrowContainer angle={angle}>
+        <TiLocationArrow />
+      </LocationArrowContainer>
+      <p>{windP}</p>
+    </div>
+  );
+};
 
 const MeasureHumidity = styled.div`
   background-color: #ffec65;
@@ -47,10 +54,6 @@ const HumidityMeter = ({ value }) => (
   </div>
 );
 
-HumidityMeter.defaultProps = {
-  value: 50,
-};
-
 // NO PUDE UTILIZAR UNA VARIABLE SASS DENTRO DE UN STYLED COMPONENT
 const LocationArrowContainer = styled.div`
   background: #6e707a;
@@ -62,7 +65,7 @@ const LocationArrowContainer = styled.div`
   height: 20px;
   width: 20px;
   padding: 2px;
-  transform: rotate(${props => props.windP - 45} + 'deg');
+  transform: rotate(${props => props.angle});
 `;
 
-export default HighlightBox;
+export default React.memo(HighlightBox);
