@@ -1,25 +1,31 @@
-import { createContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import useWeatherData from '../hooks/useWeatherData';
 import useCityCoords from '../hooks/useCityCoords';
 import { useGeoLocation } from 'use-geo-location';
+import useReverseGeocoding from '../hooks/useReverseGeocoding';
 
 const CoordsContext = createContext();
 
 const CoordsContextProvider = ({ children }) => {
   const { latitude, longitude } = useGeoLocation();
-  const [coords, setCoords] = useState({ lat: latitude, lon: longitude });
+  const [coords, setCoords] = useState({ lat: 0, lon: 0 });
   const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
     coords.lat,
     coords.lon
   );
 
+  React.useEffect(() => handleCoords(latitude, longitude), []);
+
+  const { reversedData } = useReverseGeocoding(latitude, longitude);
+
   function handleCoords(lat, lon) {
-    setCoords({ lat, lon });
+    setCoords({ lat: lat, lon: lon });
   }
   /*--------------------- */
 
   const [inputData, setInputData] = useState('');
   const [submitData, setSubmitData] = useState(null);
+
   const [selectedDay, setSelectedDay] = useState(0);
 
   function handleSelectedDay(index) {
@@ -49,6 +55,7 @@ const CoordsContextProvider = ({ children }) => {
     handleSubmitData,
     selectedDay,
     handleSelectedDay,
+    reversedData,
   };
 
   return (

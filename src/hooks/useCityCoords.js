@@ -22,7 +22,7 @@ export default function useCityCoords(place) {
         setLoading(false);
       }
     })();
-  }, [place, url]);
+  }, [url]);
 
   return { cityCoords, errorCoords, loadingCoords };
 }

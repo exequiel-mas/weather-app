@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
+import { CoordsContext } from '../../context/CoordsContext';
 import { IoLocationSharp } from 'react-icons/io5';
 import '../../styles/FooterCurrent.scss';
 
 const FooterCurrent = () => {
+  const { reversedData } = useContext(CoordsContext);
   return (
     <>
       <div className="currentDataText">
@@ -12,7 +15,7 @@ const FooterCurrent = () => {
       </div>
       <div className="locationData">
         <IoLocationSharp />
-        <p>Helsinki</p>
+        {reversedData && <p>{reversedData.county}</p>}
       </div>
     </>
   );

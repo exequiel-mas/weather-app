@@ -22,7 +22,7 @@ export default function useWeatherData(lat, lon) {
         setLoading(false);
       }
     })();
-  }, [lat, lon, url]);
+  }, [url]);
 
   return { weatherData, errorWeatherData, loadingWeatherData };
 }

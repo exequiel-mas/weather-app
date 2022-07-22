@@ -47,6 +47,10 @@ const HumidityMeter = ({ value }) => (
   </div>
 );
 
+HumidityMeter.defaultProps = {
+  value: 50,
+};
+
 // NO PUDE UTILIZAR UNA VARIABLE SASS DENTRO DE UN STYLED COMPONENT
 const LocationArrowContainer = styled.div`
   background: #6e707a;
