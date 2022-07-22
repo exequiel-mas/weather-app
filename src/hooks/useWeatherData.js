@@ -8,6 +8,11 @@ export default function useWeatherData(lat, lon) {
   const [weatherData, setWeatherData] = useState([]);
   const [errorWeatherData, setError] = useState(null);
   const [loadingWeatherData, setLoading] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(0);
+
+  function handleSelectedDay(index) {
+    setSelectedDay(index);
+  }
 
   useEffect(() => {
     if (!lat && !lon) return;
@@ -24,7 +29,13 @@ export default function useWeatherData(lat, lon) {
     })();
   }, [url]);
 
-  return { weatherData, errorWeatherData, loadingWeatherData };
+  return {
+    weatherData,
+    errorWeatherData,
+    loadingWeatherData,
+    selectedDay,
+    handleSelectedDay,
+  };
 }
 
 // REFERENCE: https://dev.to/shaedrizwan/building-custom-hooks-in-react-to-fetch-data-4ig6

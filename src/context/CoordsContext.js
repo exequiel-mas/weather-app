@@ -9,12 +9,14 @@ const CoordsContext = createContext();
 const CoordsContextProvider = ({ children }) => {
   const { latitude, longitude } = useGeoLocation();
   const [coords, setCoords] = useState({ lat: 0, lon: 0 });
-  const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
-    coords.lat,
-    coords.lon
-  );
 
-  React.useEffect(() => handleCoords(latitude, longitude), []);
+  const {
+    weatherData,
+    errorWeatherData,
+    loadingWeatherData,
+    selectedDay,
+    handleSelectedDay,
+  } = useWeatherData(coords.lat, coords.lon);
 
   const { reversedData } = useReverseGeocoding(latitude, longitude);
 
@@ -25,12 +27,6 @@ const CoordsContextProvider = ({ children }) => {
 
   const [inputData, setInputData] = useState('');
   const [submitData, setSubmitData] = useState(null);
-
-  const [selectedDay, setSelectedDay] = useState(0);
-
-  function handleSelectedDay(index) {
-    setSelectedDay(index);
-  }
 
   function handleInputData(e) {
     setInputData(e.target.value);
