@@ -3,11 +3,18 @@ import { TiLocationArrow } from 'react-icons/ti';
 import styled from 'styled-components';
 import '../../styles/HighlightsBox.scss';
 import useWindPos from '../../hooks/useWindPos';
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const HighlightBox = ({ type, title, value, unit, windP }) => {
   const { windDirection, angleRotation } = useWindPos(windP);
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="boxContainer">
+    <div
+      className="boxContainer"
+      style={{ backgroundColor: theme.backgroundMenu }}
+    >
       <h4>{title}</h4>
       <div className="valueContainer">
         <p className="value">{value}</p>

@@ -1,4 +1,3 @@
-import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 import React from 'react';
 
 function useWindPos(windValue) {
