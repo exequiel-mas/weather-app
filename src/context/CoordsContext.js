@@ -1,14 +1,27 @@
-import React, { createContext, useState } from 'react';
-import useWeatherData from '../hooks/useWeatherData';
-import useCityCoords from '../hooks/useCityCoords';
-import { useGeoLocation } from 'use-geo-location';
-import useReverseGeocoding from '../hooks/useReverseGeocoding';
+import React, { createContext, useState, useEffect } from "react";
+import useWeatherData from "../hooks/useWeatherData";
+import useCityCoords from "../hooks/useCityCoords";
+import { useGeoLocation } from "use-geo-location";
+import useReverseGeocoding from "../hooks/useReverseGeocoding";
 
 const CoordsContext = createContext();
 
 const CoordsContextProvider = ({ children }) => {
+  const [geoActive, setGeoActive] = useState(true);
   const { latitude, longitude } = useGeoLocation();
   const [coords, setCoords] = useState({ lat: 0, lon: 0 });
+
+  function handleGeoActive() {
+    setGeoActive((prev) => !prev);
+  }
+
+  useEffect(
+    () =>
+      geoActive
+        ? setCoords({ lat: latitude, lon: longitude })
+        : setCoords({ lat: coords.lat, lon: coords.lon }),
+    [latitude, longitude, geoActive]
+  );
 
   const {
     weatherData,
@@ -18,14 +31,15 @@ const CoordsContextProvider = ({ children }) => {
     handleSelectedDay,
   } = useWeatherData(coords.lat, coords.lon);
 
-  const { reversedData } = useReverseGeocoding(latitude, longitude);
+  const { reversedData } = useReverseGeocoding(coords.lat, coords.lon);
 
   function handleCoords(lat, lon) {
+    handleGeoActive();
     setCoords({ lat: lat, lon: lon });
   }
   /*--------------------- */
 
-  const [inputData, setInputData] = useState('');
+  const [inputData, setInputData] = useState("");
   const [submitData, setSubmitData] = useState(null);
 
   function handleInputData(e) {

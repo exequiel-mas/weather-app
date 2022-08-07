@@ -1,13 +1,17 @@
-function farenheitToCelsius(value = 200) {
-  return Math.round(((Number(value) - 32) * 5) / 9);
+function kelvitToFarenheit() {
+  console.log("pendiente");
 }
 
-function msToMph(value = 4) {
+function kelvinToCelsius(value) {
+  return Math.round(value - 273.15);
+}
+
+function msToMph(value) {
   return Math.round(Number(value) * 2.24 * 10) / 10;
 }
 
-function metersToMiles(value = 10000) {
+function metersToMiles(value) {
   return Math.round(Number(value) * 0.000621371 * 10) / 10;
 }
 
-export { farenheitToCelsius, msToMph, metersToMiles };
+export { kelvinToCelsius, msToMph, metersToMiles };
