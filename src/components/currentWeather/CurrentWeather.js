@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CoordsContext } from "../../context/CoordsContext";
 import NavBar from "./navbar";
 import LogoCurrent from "./LogoCurrent";
@@ -14,20 +14,14 @@ function CurrentWeather() {
   // console.log(weather);
   weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
-  const [menuOpened, setMenuOpened] = useState(false);
-
-  function handleMenuOpened() {
-    setMenuOpened((prev) => !prev);
-  }
-
   return (
     <div className={"currentWeather "} onClick={() => handleSelectedDay(0)}>
-      <NavBar openMenu={handleMenuOpened} />
+      <NavBar />
       <div className="bodyCurrent">
         <LogoCurrent drawDescription={" "} />
         <TempCurrent />
         <FooterCurrent />
-        <SearchMenu menuOpened={menuOpened} openMenu={handleMenuOpened} />
+        <SearchMenu />
       </div>
     </div>
   );

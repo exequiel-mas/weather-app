@@ -7,8 +7,6 @@ import { kelvinToCelsius } from "../../utils/weatherConversion";
 const TempCurrent = () => {
   const { weatherData, selectedDay } = useContext(CoordsContext);
 
-  setTimeout(() => console.log(weatherData), 2000);
-
   return (
     <div className="tempCurrent">
       <p className="tempValue">

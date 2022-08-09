@@ -1,15 +1,12 @@
-import { useContext } from "react";
 import { CoordsContext } from "../../context/CoordsContext";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import { IoMdClose, IoMdSearch } from "react-icons/io";
 import ListOfPlaces from "./ListOfPlaces";
+import { UIContext } from "../../context/UIContext";
 
-const SearchMenu = ({ menuOpened, openMenu }) => {
-  // const { weatherData, errorWeatherData, loadingWeatherData } = useWeatherData(
-  //   cityCoords.lat,
-  //   cityCoords.lon
-  // );
+const SearchMenu = () => {
+  const { handleMenuOpened, menuOpened } = useContext(UIContext);
 
   const {
     errorCoords,
@@ -28,7 +25,7 @@ const SearchMenu = ({ menuOpened, openMenu }) => {
   return (
     <SearchMenuContainer active={menuOpened}>
       <div className="iconContainer">
-        <IoMdClose color="white" onClick={() => openMenu()} />
+        <IoMdClose color="white" onClick={() => handleMenuOpened()} />
       </div>
       <div className="inputContainer">
         <IoMdSearch color="white" className="searchIcon" />
@@ -60,6 +57,7 @@ const SearchMenuContainer = styled.section`
   left: -2000px;
   height: 100%;
   transition: all 0.3s ease;
+  z-index: 33;
 
   ${(props) =>
     props.active &&
@@ -69,6 +67,8 @@ const SearchMenuContainer = styled.section`
       width: 100%;
       left: 0;
       height: 100%;
+      transition: all 0.3s ease;
+      z-index: 33;
 
       @media (min-width: 600px) {
         max-width: 400px;
