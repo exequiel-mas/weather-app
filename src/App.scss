@@ -1,14 +1,14 @@
-@import '../src/styles/variables.scss';
+@import "../src/styles/variables.scss";
 
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: 'Raleway', 'sans-serif';
+  font-family: "Raleway", "sans-serif";
 }
 
 .App {
   position: relative;
   background-color: $backgroundApp;
-  width: 100vw;
+  overflow: hidden;
 }
