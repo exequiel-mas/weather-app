@@ -1,29 +1,30 @@
-import React from 'react';
-import { TiLocationArrow } from 'react-icons/ti';
-import styled from 'styled-components';
-import '../../styles/HighlightsBox.scss';
-import useWindPos from '../../hooks/useWindPos';
-import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
+import React from "react";
+import { TiLocationArrow } from "react-icons/ti";
+import styled from "styled-components";
+import "../../styles/HighlightsBox.scss";
+import useWindPos from "../../hooks/useWindPos";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const HighlightBox = ({ type, title, value, unit, windP }) => {
   const { windDirection, angleRotation } = useWindPos(windP);
-  const { theme } = useContext(ThemeContext);
+  const { isDark } = useContext(ThemeContext);
 
   return (
     <div
-      className="boxContainer"
-      style={{ backgroundColor: theme.backgroundMenu }}
+      className={`boxContainer ${isDark ? "dark" : "light"}-bg-menu ${
+        isDark ? "dark" : "light"
+      }-pri-text `}
     >
       <h4>{title}</h4>
       <div className="valueContainer">
         <p className="value">{value}</p>
         <p className="unit">{unit}</p>
       </div>
-      {type === 'wind' && (
+      {type === "wind" && (
         <WindDirection angle={angleRotation} windP={windDirection} />
       )}
-      {type === 'humidity' && <HumidityMeter value={value} />}
+      {type === "humidity" && <HumidityMeter value={value} />}
     </div>
   );
 };
@@ -42,7 +43,7 @@ const WindDirection = ({ windP, angle }) => {
 const MeasureHumidity = styled.div`
   background-color: #ffec65;
   border-radius: 4px;
-  width: ${props => props.value + '%'};
+  width: ${(props) => props.value + "%"};
 `;
 
 const HumidityMeter = ({ value }) => (
@@ -72,7 +73,7 @@ const LocationArrowContainer = styled.div`
   height: 20px;
   width: 20px;
   padding: 2px;
-  transform: rotate(${props => props.angle});
+  transform: rotate(${(props) => props.angle});
 `;
 
 export default React.memo(HighlightBox);

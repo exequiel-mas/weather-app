@@ -29,7 +29,7 @@ export default function useWeatherData(lat, lon) {
         setLoading(false);
       }
     })();
-  }, [url]);
+  }, [lat, lon, url]);
 
   return {
     weatherData,

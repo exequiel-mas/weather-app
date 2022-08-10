@@ -20,7 +20,7 @@ const CoordsContextProvider = ({ children }) => {
       geoActive
         ? setCoords({ lat: latitude, lon: longitude })
         : setCoords({ lat: coords.lat, lon: coords.lon }),
-    [latitude, longitude, geoActive]
+    [latitude, longitude, geoActive, coords.lat, coords.lon]
   );
 
   const {

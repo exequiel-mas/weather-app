@@ -36,7 +36,7 @@ function useTheme() {
 
   React.useEffect(() => handleTheme, [isDark]);
 
-  return { theme, toggleTheme };
+  return { theme, toggleTheme, isDark };
 }
 
 export default useTheme;

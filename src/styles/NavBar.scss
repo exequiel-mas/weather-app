@@ -24,5 +24,8 @@
         color: $primaryTextColor;
       }
     }
+    .rotate {
+      transform: rotate(180deg);
+    }
   }
 }

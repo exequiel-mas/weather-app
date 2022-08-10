@@ -1,9 +1,9 @@
-function kelvitToFarenheit() {
-  console.log("pendiente");
-}
+// function kelvitToFarenheit() {
+//   console.log("pendiente");
+// }
 
-function kelvinToCelsius(value) {
-  return Math.round(value - 273.15);
+function kelvinToCelsius(value = 273) {
+  return Math.round(value - 273.15).toString();
 }
 
 function msToMph(value) {

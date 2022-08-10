@@ -1,10 +1,17 @@
-import ListOfHighlights from './ListOfHighlights';
-import React from 'react';
-import '../../styles/highlightsWeather.scss';
+import ListOfHighlights from "./ListOfHighlights";
+import React, { useContext } from "react";
+import "../../styles/highlightsWeather.scss";
+import { ThemeContext } from "../../context/ThemeContext";
 
 function HighlightsWeather() {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <div className="mainContainer">
+    <div
+      className={`mainContainer ${isDark ? "dark" : "light"}-bg-app ${
+        isDark ? "dark" : "light"
+      }-pri-text`}
+    >
       <h2>Today's Highlights</h2>
       <ListOfHighlights />
     </div>

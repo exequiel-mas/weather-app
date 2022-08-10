@@ -4,3 +4,46 @@ $backgroundMenuGradient: #1e213af2; //Estecolorseutilizaenlosfondosdetodaslascar
 $secondaryTextColor: #9f9eac;
 $primaryTextColor: #e7e7eb;
 $backgroundButton: #6e707a; // Este color se utiliza en fondos de botones.
+
+.dark-bg-app {
+  background-color: #100e1d;
+}
+.dark-bg-menu {
+  background-color: #1e213a;
+}
+.dark-bg-menu-gr {
+  background-color: #1e213af2;
+}
+.dark-pri-text {
+  color: #e7e7eb;
+}
+.dark-sec-text {
+  color: #9f9eac;
+  &:hover {
+    color: #e7e7eb;
+  }
+}
+.dark-bg-button {
+  background-color: #6e707a;
+}
+.light-bg-app {
+  background-color: #f7ebd7;
+}
+.light-bg-menu {
+  background-color: #df8700;
+}
+.light-bg-menu-gr {
+  background-color: #fb9800;
+}
+.light-pri-text {
+  color: #100e1d;
+}
+.light-sec-text {
+  color: #2c2a38;
+  &:hover {
+    color: #100e1d;
+  }
+}
+.light-bg-button {
+  background-color: #dd9109;
+}

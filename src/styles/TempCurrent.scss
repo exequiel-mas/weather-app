@@ -1,19 +1,18 @@
-@import '../styles/Variables.scss';
+@import "../styles/Variables.scss";
 
-.tempCurrent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 400;
-    font-family: Raleway;
-    .tempValue{
-        font-size: 100px;
-        color: $primaryTextColor;
-    }
-    .tmpUnity{
-        font-size: 35px;
-        color: $secondaryTextColor;
-        align-self: flex-end;
-        padding-bottom: 15px;
-    }
+.tempCurrent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-family: Raleway;
+  .tempValue {
+    font-size: 100px;
+  }
+  .tmpUnity {
+    font-size: 35px;
+
+    align-self: flex-end;
+    padding-bottom: 15px;
+  }
 }

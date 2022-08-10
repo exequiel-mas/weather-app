@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function useCityCoords(place) {
-  const apiKey = 'c14075cfcb8e6a63e07085ff4b3fb23c';
+  const apiKey = "c14075cfcb8e6a63e07085ff4b3fb23c";
   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
 
   const [cityCoords, setCityCoords] = useState([]);
@@ -22,7 +22,7 @@ export default function useCityCoords(place) {
         setLoading(false);
       }
     })();
-  }, [url]);
+  }, [url, place]);
 
   return { cityCoords, errorCoords, loadingCoords };
 }

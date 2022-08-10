@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function useReverseGeocoding(lat, lon) {
-  const apiKey = '0b09bec8aca849e99239a8f75e1be438';
+  const apiKey = "0b09bec8aca849e99239a8f75e1be438";
   const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${apiKey}`;
 
   const [reversedData, setReversedData] = useState({});
@@ -22,7 +22,7 @@ export default function useReverseGeocoding(lat, lon) {
         setLoading(false);
       }
     })();
-  }, [url]);
+  }, [url, lat, lon]);
 
   return { reversedData, errorReversedData, loadingReversedData };
 }

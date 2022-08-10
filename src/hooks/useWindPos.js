@@ -1,41 +1,41 @@
-import React from 'react';
+import React from "react";
 
 function useWindPos(windValue) {
-  const [windDirection, setWindDirection] = React.useState('');
+  const [windDirection, setWindDirection] = React.useState("");
   const number = Number(windValue);
-  const angleRotation = windValue - 45 + 'deg';
+  const angleRotation = windValue - 45 + "deg";
 
   React.useEffect(() => {
     switch (true) {
       case number < 23 || number >= 337:
-        setWindDirection('WE');
+        setWindDirection("WE");
         break;
       case number >= 23 && number < 68:
-        setWindDirection('WNE');
+        setWindDirection("WNE");
         break;
       case number >= 68 && number < 113:
-        setWindDirection('WN');
+        setWindDirection("WN");
         break;
       case number >= 113 && number < 158:
-        setWindDirection('WNW');
+        setWindDirection("WNW");
         break;
       case number >= 158 && number < 203:
-        setWindDirection('WW');
+        setWindDirection("WW");
         break;
       case number >= 203 && number < 248:
-        setWindDirection('WSW');
+        setWindDirection("WSW");
         break;
       case number >= 248 && number < 293:
-        setWindDirection('WS');
+        setWindDirection("WS");
         break;
       case number >= 293 && number < 337:
-        setWindDirection('WSE');
+        setWindDirection("WSE");
         break;
       default:
-        setWindDirection('Unknown');
+        setWindDirection("Unknown");
         break;
     }
-  }, [windValue]);
+  }, [number, windValue]);
 
   return { windDirection, angleRotation };
 }

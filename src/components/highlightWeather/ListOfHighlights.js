@@ -1,5 +1,5 @@
 import "../../styles/ListOfHighlights.scss";
-import React, { Suspense } from "react";
+import React from "react";
 import { useContext } from "react";
 import { CoordsContext } from "../../context/CoordsContext.js";
 import { metersToMiles, msToMph } from "../../utils/weatherConversion.js";

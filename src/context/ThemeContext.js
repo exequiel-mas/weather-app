@@ -1,13 +1,13 @@
-import React, { createContext } from 'react';
-import useTheme from '../hooks/useTheme';
+import React, { createContext } from "react";
+import useTheme from "../hooks/useTheme";
 
 const ThemeContext = createContext();
 
 const ThemeContextProvider = ({ children }) => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, isDark } = useTheme();
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
       {children}
     </ThemeContext.Provider>
   );
