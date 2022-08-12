@@ -1,19 +1,6 @@
-@import "../src/styles/variables.scss";
-
 * {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
   font-family: "Raleway", "sans-serif";
-}
-
-.App {
-  position: relative;
-  overflow: hidden;
-
-  @media (min-width: 1080px) {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
 }

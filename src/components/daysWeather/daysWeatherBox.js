@@ -12,9 +12,13 @@ const DaysWeatherBox = (props) => {
       onClick={() => handleSelectedDay(props.indexSelected)}
     >
       <div className={`DaysWeatherBoxDiv`}>
-        <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>{props.day}</h2>
-        <div className="ImgClima">
-          <img src={props.clima} alt="imagen del clima" />
+        <div className="sliceBox">
+          <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
+            {props.day}
+          </h2>
+          <div className="ImgClima">
+            <img src={props.clima} alt="imagen del clima" />
+          </div>
         </div>
         <div className={`TempsDay ${isDark ? "dark" : "light"}-pri-text`}>
           <p>{props.tmpmax}°c</p>

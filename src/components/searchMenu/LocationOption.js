@@ -7,7 +7,9 @@ const LocationOption = ({ city, country, handleCoords, lat, lon }) => {
   const { isDark } = useContext(ThemeContext);
   return (
     <OptionContainer
-      className={`${isDark ? "dark" : "light"}-bg-menu`}
+      className={`${isDark ? "dark" : "light"}-bg-box ${
+        isDark ? "dark" : "light"
+      }-pri-text`}
       onClick={(event) => handleCoords(lat, lon)}
     >
       {city}, {country}
@@ -22,7 +24,7 @@ const OptionContainer = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px white;
+  border: none;
   margin: 10px 0px;
   padding: 12px;
   cursor: pointer;

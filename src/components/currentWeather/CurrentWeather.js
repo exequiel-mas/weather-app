@@ -6,7 +6,6 @@ import TempCurrent from "./TempCurrent";
 import FooterCurrent from "./FooterCurrent";
 import "../../styles/currentWeather.scss";
 // import convertDate from "../../utils/dateConversion";
-import SearchMenu from "../searchMenu/SearchMenu";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function CurrentWeather() {
@@ -22,12 +21,11 @@ function CurrentWeather() {
       }-bg-box`}
       onClick={() => handleSelectedDay(0)}
     >
-      <NavBar />
       <div className="bodyCurrent">
+        <NavBar />
         <LogoCurrent drawDescription={" "} />
         <TempCurrent />
         <FooterCurrent />
-        <SearchMenu />
       </div>
     </div>
   );
