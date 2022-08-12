@@ -6,22 +6,20 @@ import { IoLocationSharp } from "react-icons/io5";
 import convertDate from "../../utils/dateConversion";
 import "../../styles/FooterCurrent.scss";
 
-const FooterCurrent = ({info, day}) => {
-  const { reversedData } = useContext(CoordsContext);
+const FooterCurrent = () => {
+  const { reversedData, weatherData, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-
-  const dia = info.dt_txt;
 
   return (
     <>
       <div className={`currentDataText ${isDark ? "dark" : "light"}-sec-text`}>
-        { day === 0
+        { selectedDay === 0
           ? <p>Today ·</p>
-          : day === 1
+          : selectedDay === 1
           ? <p>Tomorrow ·</p>
           : <p></p>
         }
-        <p>{convertDate(dia)}</p>
+        <p>{convertDate(weatherData[selectedDay]?.dt_txt)}</p>
       </div>
       <div className={`locationData ${isDark ? "dark" : "light"}-sec-text`}>
         <IoLocationSharp />

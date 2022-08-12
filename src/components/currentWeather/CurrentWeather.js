@@ -12,7 +12,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 function CurrentWeather() {
   const { weatherData, handleSelectedDay, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-  // const weather = weatherData.weather.at(0);
+  const weather = weatherData[selectedDay];
   // console.log(weather);
   weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
@@ -27,7 +27,7 @@ function CurrentWeather() {
       <div className="bodyCurrent">
         <LogoCurrent drawDescription={`${weather?.weather[0].description}`} />
         <TempCurrent />
-        <FooterCurrent info={weather} day={selectedDay}/>
+        <FooterCurrent/>
         <SearchMenu />
       </div>
     </div>
