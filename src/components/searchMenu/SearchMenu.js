@@ -56,7 +56,7 @@ const SearchMenuContainer = styled.section`
   width: 100%;
   left: -2000px;
   height: 100%;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   z-index: 33;
 
   ${(props) =>
@@ -67,7 +67,7 @@ const SearchMenuContainer = styled.section`
       width: 100%;
       left: 0;
       height: 100%;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-in-out;
       z-index: 33;
 
       @media (min-width: 600px) {
