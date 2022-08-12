@@ -1,7 +1,8 @@
 //DARK MODE
 $darkBackgroundApp: #100e1d;
-$darkBackgroundMenu: #1e213a;
-$darkBackgroundBox: #06050b;
+$darkBackgroundMenu: #06050b;
+$darkBackgroundBox: #1e213a;
+
 $darkBackgroundMenuGradient: #1e213af2; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
 $darkSecondaryTextColor: #9f9eac;
 $darkPrimaryTextColor: #e7e7eb;
@@ -21,10 +22,10 @@ $lightBackgroundButton: #58b9ff; // Este color se utiliza en fondos de botones.
   background-color: $darkBackgroundApp;
 }
 .dark-bg-menu {
-  background-color: $darkBackgroundBox;
+  background-color: $darkBackgroundMenu;
 }
 .dark-bg-box {
-  background-color: $darkBackgroundMenu;
+  background-color: $darkBackgroundBox;
 }
 .dark-bg-box-gr {
   background-color: $darkBackgroundMenuGradient;

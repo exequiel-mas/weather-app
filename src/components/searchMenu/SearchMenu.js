@@ -54,7 +54,7 @@ const SearchMenu = () => {
 const SearchMenuContainer = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  padding: 23px;
   width: 100%;
   border-radius: 10px;
   position: absolute;
@@ -64,6 +64,10 @@ const SearchMenuContainer = styled.section`
   height: 100%;
   transition: all 0.3s ease-in-out;
   z-index: 33;
+  @media (min-width: 1280px) {
+    transition: none;
+    border-radius: 0px;
+  }
 
   ${(props) =>
     props.active &&
@@ -76,8 +80,9 @@ const SearchMenuContainer = styled.section`
       transition: all 0.3s ease-in-out;
       z-index: 33;
 
-      @media (min-width: 600px) {
-        max-width: 400px;
+      @media (min-width: 1280px) {
+        position: relative;
+        transition: none;
       }
     `}
 
