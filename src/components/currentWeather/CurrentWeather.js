@@ -12,7 +12,7 @@ function CurrentWeather() {
   const { isDark } = useContext(ThemeContext);
   const weather = weatherData[selectedDay];
   // console.log(weather);
-  weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
+  // weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
   return (
     <div
@@ -22,6 +22,7 @@ function CurrentWeather() {
       onClick={() => handleSelectedDay(0)}
     >
       <div className="bodyCurrent">
+        <NavBar/>
         <LogoCurrent drawDescription={`${weather?.weather[0].description}`} />
         <TempCurrent />
         <FooterCurrent />
