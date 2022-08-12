@@ -4,9 +4,11 @@ import styled, { css } from "styled-components";
 import { IoMdClose, IoMdSearch } from "react-icons/io";
 import ListOfPlaces from "./ListOfPlaces";
 import { UIContext } from "../../context/UIContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const SearchMenu = () => {
   const { handleMenuOpened, menuOpened } = useContext(UIContext);
+  const { isDark } = useContext(ThemeContext);
 
   const {
     errorCoords,
@@ -23,13 +25,18 @@ const SearchMenu = () => {
   }
 
   return (
-    <SearchMenuContainer active={menuOpened}>
+    <SearchMenuContainer
+      className={`${isDark ? "dark" : "light"}-bg-menu`}
+      active={menuOpened}
+      isDark={isDark}
+    >
       <div className="iconContainer">
         <IoMdClose color="white" onClick={() => handleMenuOpened()} />
       </div>
       <div className="inputContainer">
         <IoMdSearch color="white" className="searchIcon" />
         <input
+          className={`${isDark ? "dark" : "light"}-pri-text`}
           type="text"
           placeholder="search location"
           onChange={handleInputData}
@@ -46,7 +53,6 @@ const SearchMenu = () => {
 
 const SearchMenuContainer = styled.section`
   display: flex;
-  background-color: #1e213a;
   flex-direction: column;
   padding: 12px;
   width: 100%;
@@ -56,7 +62,7 @@ const SearchMenuContainer = styled.section`
   width: 100%;
   left: -2000px;
   height: 100%;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   z-index: 33;
 
   ${(props) =>
@@ -67,7 +73,7 @@ const SearchMenuContainer = styled.section`
       width: 100%;
       left: 0;
       height: 100%;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-in-out;
       z-index: 33;
 
       @media (min-width: 600px) {
@@ -99,6 +105,12 @@ const SearchMenuContainer = styled.section`
       font-weight: 600;
       font-size: 1rem;
       min-width: 200px;
+      &::placeholder {
+        color: white;
+      }
+      &:focus {
+        outline: none;
+      }
     }
     .searchIcon {
       position: absolute;
@@ -106,7 +118,7 @@ const SearchMenuContainer = styled.section`
       font-size: 17px;
     }
     button {
-      background-color: #3c47e9;
+      background-color: ${(props) => (props.isDark ? "#3c47e9" : "#0092cb")};
       height: 100%;
       margin-left: 12px;
       padding: 14px;

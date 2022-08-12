@@ -12,7 +12,7 @@ const HighlightBox = ({ type, title, value, unit, windP }) => {
 
   return (
     <div
-      className={`boxContainer ${isDark ? "dark" : "light"}-bg-menu ${
+      className={`boxContainer ${isDark ? "dark" : "light"}-bg-box ${
         isDark ? "dark" : "light"
       }-pri-text `}
     >
@@ -22,17 +22,26 @@ const HighlightBox = ({ type, title, value, unit, windP }) => {
         <p className="unit">{unit}</p>
       </div>
       {type === "wind" && (
-        <WindDirection angle={angleRotation} windP={windDirection} />
+        <WindDirection
+          isDark={isDark}
+          angle={angleRotation}
+          windP={windDirection}
+        />
       )}
       {type === "humidity" && <HumidityMeter value={value} />}
     </div>
   );
 };
 
-const WindDirection = ({ windP, angle }) => {
+const WindDirection = ({ windP, angle, isDark }) => {
   return (
     <div className="windDirection">
-      <LocationArrowContainer angle={angle}>
+      <LocationArrowContainer
+        className={`searchButton ${isDark ? "dark" : "light"}-bg-button ${
+          isDark ? "dark" : "light"
+        }-pri-text`}
+        angle={angle}
+      >
         <TiLocationArrow />
       </LocationArrowContainer>
       <p>{windP}</p>
@@ -62,11 +71,8 @@ const HumidityMeter = ({ value }) => (
   </div>
 );
 
-// NO PUDE UTILIZAR UNA VARIABLE SASS DENTRO DE UN STYLED COMPONENT
 const LocationArrowContainer = styled.div`
-  background: #6e707a;
   border-radius: 50%;
-  color: #e7e7eb;
   display: flex;
   align-items: center;
   justify-content: center;

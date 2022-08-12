@@ -12,14 +12,15 @@ import { ThemeContext } from "../../context/ThemeContext";
 function CurrentWeather() {
   const { weatherData, handleSelectedDay, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-
-  const weather = weatherData[selectedDay];
-  // console.log(weather.weather[0].description);
-  // weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
+  // const weather = weatherData.weather.at(0);
+  // console.log(weather);
+  weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
   return (
     <div
-      className={`currentWeather ${isDark ? "dark" : "light"}-bg-menu`}
+      className={`currentWeather-${
+        isDark ? "dark dark" : "light light"
+      }-bg-box`}
       onClick={() => handleSelectedDay(0)}
     >
       <NavBar />

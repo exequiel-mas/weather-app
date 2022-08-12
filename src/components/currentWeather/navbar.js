@@ -11,13 +11,22 @@ function NavBar() {
   const { toggleTheme, isDark } = useContext(ThemeContext);
   return (
     <div className="navbar">
-      <button className="searchButton" onClick={() => handleMenuOpened()}>
+      <button
+        className={`searchButton ${isDark ? "dark" : "light"}-bg-button ${
+          isDark ? "dark" : "light"
+        }-pri-text`}
+        onClick={() => handleMenuOpened()}
+      >
         Search for places
       </button>
       <div className="iconSection">
-        <BiCurrentLocation className="navbarIcon" />
+        <BiCurrentLocation
+          className={`navbarIcon ${isDark ? "dark" : "light"}-sec-text`}
+        />
         <VscColorMode
-          className={`navbarIcon ${!isDark && "rotate"}`}
+          className={`navbarIcon ${isDark ? "dark" : "light"}-sec-text ${
+            !isDark && "rotate"
+          }`}
           onClick={() => toggleTheme()}
         />
       </div>

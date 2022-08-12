@@ -1,5 +1,37 @@
 .listOfHighlights {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 23px 0px;
+  width: 100%;
+
+  @media (min-width: 540px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 23px 23px;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 23px 23px;
+  }
+  @media (min-width: 960px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    gap: 23px 23px;
+    justify-content: center;
+    align-content: center;
+  }
+
+  @media (min-width: 1080px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+    gap: 23px 23px;
+    justify-content: center;
+    align-content: center;
+  }
 }

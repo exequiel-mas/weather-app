@@ -8,8 +8,6 @@
     border-style: none;
     margin: 18px;
     padding: 10px 18px;
-    background-color: $backgroundButton;
-    color: $primaryTextColor;
     box-shadow: 1px 10px 8px -5px rgba(0, 0, 0, 0.75);
   }
   .iconSection {
@@ -19,10 +17,6 @@
     margin: 0 10px 0 0;
     .navbarIcon {
       font-size: 25px;
-      color: $secondaryTextColor;
-      &:hover {
-        color: $primaryTextColor;
-      }
     }
     .rotate {
       transform: rotate(180deg);
