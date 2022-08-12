@@ -1,13 +1,16 @@
-import React, { createContext } from "react";
-import useTheme from "../hooks/useTheme";
+import React, { useState, createContext } from "react";
 
 const ThemeContext = createContext();
 
 const ThemeContextProvider = ({ children }) => {
-  const { theme, toggleTheme, isDark } = useTheme();
+  const [isDark, setIsDark] = useState(true); // Cambiar a estado inicial como true
+
+  function toggleTheme() {
+    setIsDark((prevstate) => !prevstate);
+  }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>
+    <ThemeContext.Provider value={{ toggleTheme, isDark }}>
       {children}
     </ThemeContext.Provider>
   );

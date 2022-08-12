@@ -5,20 +5,21 @@ import LogoCurrent from "./LogoCurrent";
 import TempCurrent from "./TempCurrent";
 import FooterCurrent from "./FooterCurrent";
 import "../../styles/currentWeather.scss";
-import convertDate from "../../utils/dateConversion";
+// import convertDate from "../../utils/dateConversion";
 import SearchMenu from "../searchMenu/SearchMenu";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function CurrentWeather() {
-  const { weatherData, handleSelectedDay } = useContext(CoordsContext);
+  const { handleSelectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-  // const weather = weatherData.weather.at(0);
-  // console.log(weather);
-  weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
+
+  // weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
   return (
     <div
-      className={`currentWeather ${isDark ? "dark" : "light"}-bg-menu`}
+      className={`currentWeather-${
+        isDark ? "dark dark" : "light light"
+      }-bg-box`}
       onClick={() => handleSelectedDay(0)}
     >
       <NavBar />

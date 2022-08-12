@@ -6,7 +6,7 @@ div.windDirection {
   align-items: center;
 
   p {
-    color: $primaryTextColor;
+    color: white;
     font-family: "Raleway";
     font-style: normal;
     font-weight: 500;
@@ -31,7 +31,7 @@ div.humidityMeter {
   div.meterBack {
     margin: 2px 0px;
     height: 8px;
-    background-color: $primaryTextColor;
+    background-color: white;
     display: flex;
     border-radius: 4px;
   }

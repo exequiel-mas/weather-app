@@ -8,7 +8,7 @@ const DaysWeatherBox = (props) => {
   const { isDark } = useContext(ThemeContext);
   return (
     <div
-      className={`DaysWeatherBox ${isDark ? "dark" : "light"}-bg-menu`}
+      className={`DaysWeatherBox ${isDark ? "dark" : "light"}-bg-box`}
       onClick={() => handleSelectedDay(props.indexSelected)}
     >
       <div className={`DaysWeatherBoxDiv`}>

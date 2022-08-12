@@ -9,6 +9,11 @@
 
 .App {
   position: relative;
-  background-color: $backgroundApp;
   overflow: hidden;
+
+  @media (min-width: 1080px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }

@@ -11,10 +11,6 @@ const ListOfHighlights = () => {
     useContext(CoordsContext);
 
   if (loadingWeatherData) return <BeatLoader />;
-  // hacer esto no seria una buena practica, quizas estaria bueno que hasta que este disponible se renderize un componente o sino, arreglarlo para que al entrar a la app ya se te cargue la ubicacion
-
-  // const HighlightBox = React.lazy(() => import('./HighlightBox'));
-  //
 
   return (
     weatherData && (

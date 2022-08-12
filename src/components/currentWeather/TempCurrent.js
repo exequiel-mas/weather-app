@@ -6,8 +6,7 @@ import { kelvinToCelsius } from "../../utils/weatherConversion";
 import { ThemeContext } from "../../context/ThemeContext";
 
 const TempCurrent = () => {
-  const { weatherData, selectedDay, loadingWeatherData } =
-    useContext(CoordsContext);
+  const { weatherData, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
 
   return (

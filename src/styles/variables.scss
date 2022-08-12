@@ -1,49 +1,68 @@
-$backgroundApp: #100e1d;
-$backgroundMenu: #1e213a;
-$backgroundMenuGradient: #1e213af2; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
-$secondaryTextColor: #9f9eac;
-$primaryTextColor: #e7e7eb;
-$backgroundButton: #6e707a; // Este color se utiliza en fondos de botones.
+//DARK MODE
+$darkBackgroundApp: #100e1d;
+$darkBackgroundMenu: #1e213a;
+$darkBackgroundBox: #06050b;
+$darkBackgroundMenuGradient: #1e213af2; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
+$darkSecondaryTextColor: #9f9eac;
+$darkPrimaryTextColor: #e7e7eb;
+$darkBackgroundButton: #6e707a; // Este color se utiliza en fondos de botones.
 
+//LIGHT MODE
+$lightBackgroundApp: #006cba;
+$lightBackgroundMenu: #00548f;
+$lightBackgroundBox: #109bff;
+$lightBackgroundMenuGradient: #0673c1da; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
+$lightSecondaryTextColor: #beecff;
+$lightPrimaryTextColor: #ffffff;
+$lightBackgroundButton: #58b9ff; // Este color se utiliza en fondos de botones.
+
+//NO MODIFICAR LAS CLASES
 .dark-bg-app {
-  background-color: #100e1d;
+  background-color: $darkBackgroundApp;
 }
 .dark-bg-menu {
-  background-color: #1e213a;
+  background-color: $darkBackgroundBox;
 }
-.dark-bg-menu-gr {
-  background-color: #1e213af2;
+.dark-bg-box {
+  background-color: $darkBackgroundMenu;
+}
+.dark-bg-box-gr {
+  background-color: $darkBackgroundMenuGradient;
 }
 .dark-pri-text {
-  color: #e7e7eb;
+  color: $darkPrimaryTextColor;
 }
 .dark-sec-text {
-  color: #9f9eac;
+  color: $darkSecondaryTextColor;
   &:hover {
-    color: #e7e7eb;
+    color: $darkPrimaryTextColor;
   }
 }
 .dark-bg-button {
-  background-color: #6e707a;
+  background-color: $darkBackgroundButton;
 }
+
 .light-bg-app {
-  background-color: #f7ebd7;
+  background-color: $lightBackgroundApp;
+}
+.light-bg-box {
+  background-color: $lightBackgroundBox;
 }
 .light-bg-menu {
-  background-color: #df8700;
+  background-color: $lightBackgroundMenu;
 }
-.light-bg-menu-gr {
-  background-color: #fb9800;
+.light-bg-box-gr {
+  background-color: $lightBackgroundMenuGradient;
 }
 .light-pri-text {
-  color: #100e1d;
+  color: $lightPrimaryTextColor;
 }
 .light-sec-text {
-  color: #2c2a38;
+  color: $lightSecondaryTextColor;
   &:hover {
-    color: #100e1d;
+    color: $lightPrimaryTextColor;
   }
 }
 .light-bg-button {
-  background-color: #dd9109;
+  background-color: $lightBackgroundButton;
 }
