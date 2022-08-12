@@ -10,11 +10,12 @@ import SearchMenu from "../searchMenu/SearchMenu";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function CurrentWeather() {
-  const { weatherData, handleSelectedDay } = useContext(CoordsContext);
+  const { weatherData, handleSelectedDay, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-  // const weather = weatherData.weather.at(0);
-  // console.log(weather);
-  weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
+
+  const weather = weatherData[selectedDay];
+  // console.log(weather.weather[0].description);
+  // weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
   return (
     <div
@@ -23,9 +24,9 @@ function CurrentWeather() {
     >
       <NavBar />
       <div className="bodyCurrent">
-        <LogoCurrent drawDescription={" "} />
+        <LogoCurrent drawDescription={`${weather?.weather[0].description}`} />
         <TempCurrent />
-        <FooterCurrent />
+        <FooterCurrent info={weather} day={selectedDay}/>
         <SearchMenu />
       </div>
     </div>

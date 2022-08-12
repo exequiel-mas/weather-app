@@ -1,6 +1,6 @@
-// function kelvitToFarenheit() {
-//   console.log("pendiente");
-// }
+function kelvintToFarenheit(value) {
+  return (( value - 273.15) * (9/5) + 32);
+}
 
 function kelvinToCelsius(value = 273) {
   return Math.round(value - 273.15).toString();
