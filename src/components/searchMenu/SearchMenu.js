@@ -33,7 +33,7 @@ const SearchMenu = () => {
       <div className="iconContainer">
         <IoMdClose color="white" onClick={() => handleMenuOpened()} />
       </div>
-      <div className="inputContainer">
+      <form className="inputContainer" onSubmit={(e) => handleSubmitData(e)}>
         <IoMdSearch color="white" className="searchIcon" />
         <input
           className={`${isDark ? "dark" : "light"}-pri-text`}
@@ -43,8 +43,8 @@ const SearchMenu = () => {
           name="inputData"
           value={inputData}
         />
-        <button onClick={handleSubmitData}>Search</button>
-      </div>
+        <button onClick={(e) => handleSubmitData(e)}>Search</button>
+      </form>
       {loadingCoords && <p>Loading...</p>}
       <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords} />
     </SearchMenuContainer>
@@ -94,7 +94,7 @@ const SearchMenuContainer = styled.section`
     font-size: 1.2rem;
   }
 
-  div.inputContainer {
+  form.inputContainer {
     position: relative;
     display: flex;
     align-items: center;

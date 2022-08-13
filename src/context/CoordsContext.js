@@ -45,8 +45,14 @@ const CoordsContextProvider = ({ children }) => {
   function handleInputData(e) {
     setInputData(e.target.value);
   }
-  function handleSubmitData() {
+  function handleSubmitData(e) {
+    e.preventDefault();
     setSubmitData(inputData);
+  }
+
+  function resetSearch() {
+    setInputData("");
+    cityCoords = [];
   }
 
   const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
@@ -66,6 +72,8 @@ const CoordsContextProvider = ({ children }) => {
     selectedDay,
     handleSelectedDay,
     reversedData,
+    handleGeoActive,
+    resetSearch,
   };
 
   return (

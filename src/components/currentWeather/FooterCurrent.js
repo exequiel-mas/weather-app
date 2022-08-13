@@ -13,13 +13,14 @@ const FooterCurrent = () => {
   return (
     <>
       <div className={`currentDataText ${isDark ? "dark" : "light"}-sec-text`}>
-        { selectedDay === 0
-          ? <p>Today ·</p>
-          : selectedDay === 1
-          ? <p>Tomorrow ·</p>
-          : <p></p>
-        }
-        <p>{convertDate(weatherData[selectedDay]?.dt_txt)}</p>
+        {selectedDay === 0 ? (
+          <p>Today ·</p>
+        ) : selectedDay === 1 ? (
+          <p>Tomorrow ·</p>
+        ) : (
+          <p></p>
+        )}
+        {weatherData && <p>{convertDate(weatherData[selectedDay]?.dt_txt)}</p>}
       </div>
       <div className={`locationData ${isDark ? "dark" : "light"}-sec-text`}>
         <IoLocationSharp />

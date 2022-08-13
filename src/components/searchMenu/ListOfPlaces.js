@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import LocationOption from './LocationOption';
-import { nanoid } from 'nanoid';
+import React from "react";
+import styled from "styled-components";
+import LocationOption from "./LocationOption";
+import { nanoid } from "nanoid";
 
 const ListOfPlaces = ({ cityData, handleCoords }) => {
-  const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
-    type: 'region',
+  const regionNamesInEnglish = new Intl.DisplayNames(["en"], {
+    type: "region",
   });
   return (
     <ListOfPlacesContainer>
-      {cityData.map(city => (
+      {cityData.map((city) => (
         <LocationOption
           key={nanoid()}
           handleCoords={handleCoords}
