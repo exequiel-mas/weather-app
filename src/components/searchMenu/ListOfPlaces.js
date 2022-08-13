@@ -28,4 +28,5 @@ export default ListOfPlaces;
 const ListOfPlacesContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-self: stretch;
 `;

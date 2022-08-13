@@ -5,6 +5,7 @@ import { IoMdClose, IoMdSearch } from "react-icons/io";
 import ListOfPlaces from "./ListOfPlaces";
 import { UIContext } from "../../context/UIContext";
 import { ThemeContext } from "../../context/ThemeContext";
+import { BeatLoader } from "react-spinners";
 
 const SearchMenu = () => {
   const { handleMenuOpened, menuOpened } = useContext(UIContext);
@@ -18,6 +19,7 @@ const SearchMenu = () => {
     loadingCoords,
     cityCoords,
     handleCoords,
+    hasError,
   } = useContext(CoordsContext);
 
   if (errorCoords) {
@@ -45,8 +47,16 @@ const SearchMenu = () => {
         />
         <button onClick={(e) => handleSubmitData(e)}>Search</button>
       </form>
-      {loadingCoords && <p>Loading...</p>}
-      <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords} />
+      {hasError && (
+        <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
+          {errorCoords}
+        </h2>
+      )}
+      {loadingCoords ? (
+        <BeatLoader color="white" />
+      ) : (
+        <ListOfPlaces cityData={cityCoords} handleCoords={handleCoords} />
+      )}
     </SearchMenuContainer>
   );
 };
@@ -54,6 +64,7 @@ const SearchMenu = () => {
 const SearchMenuContainer = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 23px;
   width: 100%;
   border-radius: 10px;

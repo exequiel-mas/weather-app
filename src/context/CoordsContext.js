@@ -55,7 +55,8 @@ const CoordsContextProvider = ({ children }) => {
     cityCoords = [];
   }
 
-  const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
+  const { cityCoords, loadingCoords, errorCoords, hasError } =
+    useCityCoords(submitData);
 
   const variables = {
     weatherData,
@@ -66,6 +67,7 @@ const CoordsContextProvider = ({ children }) => {
     submitData,
     cityCoords,
     loadingCoords,
+    hasError,
     errorCoords,
     handleInputData,
     handleSubmitData,
