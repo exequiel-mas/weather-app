@@ -2,9 +2,15 @@
 
 .daysWeather {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 23px;
+  h2{
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+  }
   .DaysContainer {
     display: grid;
     grid-template-columns: 1fr;

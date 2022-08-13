@@ -1,24 +1,20 @@
-import { useEffect, useState, useContext } from "react";
 import "../../styles/daysWeather.scss";
-import { getDays } from "./APIsimlulator.js";
 import DaysWeatherBox from "./daysWeatherBox";
+import { useContext } from "react";
+import { CoordsContext } from "../../context/CoordsContext";
 import { ThemeContext } from "../../context/ThemeContext.js";
 
 const DaysWeather = () => {
-  const [days, setDays] = useState([]);
-  const { isDark } = useContext(ThemeContext);
 
-  useEffect(() => {
-    getDays().then((response) => {
-      setDays(response);
-    });
-  }, []);
+  const { weatherData } = useContext(CoordsContext);
+  const { isDark } = useContext(ThemeContext);
 
   return (
     <div className={`daysWeather ${isDark ? "dark" : "light"}-bg-app`}>
+      <h2>Week Weather</h2>
       <div className="DaysContainer">
-        {days.map((day, index) => (
-          <DaysWeatherBox key={day.id} indexSelected={index} {...day} />
+        {weatherData.map((data, index, bigdata) => (
+          <DaysWeatherBox key={index} data={data} index={index} bigdata={bigdata}  />
         ))}
       </div>
     </div>

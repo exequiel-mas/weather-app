@@ -1,7 +1,7 @@
 const days = [
     { 
         id: '1',
-        day: 'Tomorrow',
+        day: 'Today',
         clima: require('../../images/SunSleet.png'),
         tmpmax: 16,
         tmpmin: 11

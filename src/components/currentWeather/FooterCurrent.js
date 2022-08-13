@@ -10,6 +10,8 @@ const FooterCurrent = () => {
   const { reversedData, weatherData, selectedDay } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
 
+  let day = weatherData[selectedDay]?.dt_txt;
+
   return (
     <>
       <div className={`currentDataText ${isDark ? "dark" : "light"}-sec-text`}>
@@ -19,7 +21,7 @@ const FooterCurrent = () => {
           ? <p>Tomorrow ·</p>
           : <p></p>
         }
-        <p>{convertDate(weatherData[selectedDay]?.dt_txt)}</p>
+        <p>{ day ? convertDate(day) : " "}</p>
       </div>
       <div className={`locationData ${isDark ? "dark" : "light"}-sec-text`}>
         <IoLocationSharp />
