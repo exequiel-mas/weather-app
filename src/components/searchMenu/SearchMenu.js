@@ -22,10 +22,6 @@ const SearchMenu = () => {
     hasError,
   } = useContext(CoordsContext);
 
-  if (errorCoords) {
-    console.log(errorCoords);
-  }
-
   return (
     <SearchMenuContainer
       className={`${isDark ? "dark" : "light"}-bg-menu`}
@@ -36,16 +32,22 @@ const SearchMenu = () => {
         <IoMdClose color="white" onClick={() => handleMenuOpened()} />
       </div>
       <form className="inputContainer" onSubmit={(e) => handleSubmitData(e)}>
-        <IoMdSearch color="white" className="searchIcon" />
-        <input
-          className={`${isDark ? "dark" : "light"}-pri-text`}
+        <IoMdSearch
+          color="white"
+          className="searchIcon"
+          onClick={(e) => handleSubmitData(e)}
+        />
+        <InputStyle
+          className={`${isDark ? "dark" : "light"}-bg-box`}
           type="text"
-          placeholder="search location"
+          placeholder="Search location"
           onChange={handleInputData}
           name="inputData"
           value={inputData}
         />
-        <button onClick={(e) => handleSubmitData(e)}>Search</button>
+        {/* <ButtonStyle isDark={isDark} onClick={(e) => handleSubmitData(e)}>
+          Search
+        </ButtonStyle> */}
       </form>
       {hasError && (
         <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
@@ -67,7 +69,7 @@ const SearchMenuContainer = styled.section`
   align-items: center;
   padding: 23px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 0px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -111,41 +113,47 @@ const SearchMenuContainer = styled.section`
     align-items: center;
     width: 100%;
     margin: 20px 0px;
-    input {
-      flex: 1 1;
-      background: none;
-      border: solid 1px white;
-      padding: 14px 14px 14px 49px;
-      color: white;
-      font-size: Raleway;
-      font-weight: 600;
-      font-size: 1rem;
-      min-width: 200px;
-      &::placeholder {
-        color: white;
-      }
-      &:focus {
-        outline: none;
-      }
-    }
+
     .searchIcon {
       position: absolute;
-      left: 20px;
-      font-size: 17px;
-    }
-    button {
-      background-color: ${(props) => (props.isDark ? "#3c47e9" : "#0092cb")};
-      height: 100%;
-      margin-left: 12px;
-      padding: 14px;
-      color: white;
-      font-size: Raleway;
-      font-weight: 600;
-      font-size: 1rem;
-      border: none;
+      right: 1rem;
+      font-size: 1.5rem;
       cursor: pointer;
     }
   }
 `;
 
 export default SearchMenu;
+
+const InputStyle = styled.input`
+  /* background-color: ${(props) => (props.isDark ? "#1e213a" : "#0d85da")}; */
+
+  flex: 1 1;
+  border: none;
+  padding: 14px 49px 14px 14px;
+  color: white;
+  font-size: Raleway;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 200px;
+  &::placeholder {
+    color: white;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
+
+// En caso de que no vaya mas con el boton esto se eliminaria
+// const ButtonStyle = styled.button`
+//   background-color: ${(props) => (props.isDark ? "#3c47e9" : "#294F7A")};
+//   height: 100%;
+//   margin-left: 12px;
+//   padding: 14px;
+//   color: white;
+//   font-size: Raleway;
+//   font-weight: 600;
+//   font-size: 1rem;
+//   border: none;
+//   cursor: pointer;
+// `;

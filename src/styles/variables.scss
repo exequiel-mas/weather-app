@@ -2,7 +2,6 @@
 $darkBackgroundApp: #100e1d;
 $darkBackgroundMenu: #06050b;
 $darkBackgroundBox: #1e213a;
-
 $darkBackgroundMenuGradient: #1e213af2; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
 $darkSecondaryTextColor: #9f9eac;
 $darkPrimaryTextColor: #e7e7eb;
@@ -11,7 +10,7 @@ $darkBackgroundButton: #6e707a; // Este color se utiliza en fondos de botones.
 //LIGHT MODE
 $lightBackgroundApp: #006cba;
 $lightBackgroundMenu: #00548f;
-$lightBackgroundBox: #109bff;
+$lightBackgroundBox: #0e8eea;
 $lightBackgroundMenuGradient: #0673c1da; //Estecolorseutilizaenlosfondosdetodaslascardsyenelfondodelsearchmenu
 $lightSecondaryTextColor: #beecff;
 $lightPrimaryTextColor: #ffffff;
@@ -26,7 +25,11 @@ $lightBackgroundButton: #58b9ff; // Este color se utiliza en fondos de botones.
 }
 .dark-bg-box {
   background-color: $darkBackgroundBox;
+  &:focus {
+    background-color: #272b4e;
+  }
 }
+
 .dark-bg-box-gr {
   background-color: $darkBackgroundMenuGradient;
 }
@@ -48,6 +51,9 @@ $lightBackgroundButton: #58b9ff; // Este color se utiliza en fondos de botones.
 }
 .light-bg-box {
   background-color: $lightBackgroundBox;
+  &:focus {
+    background-color: #109bff;
+  }
 }
 .light-bg-menu {
   background-color: $lightBackgroundMenu;

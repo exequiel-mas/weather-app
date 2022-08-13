@@ -52,7 +52,6 @@ const CoordsContextProvider = ({ children }) => {
 
   function resetSearch() {
     setInputData("");
-    cityCoords = [];
   }
 
   const { cityCoords, loadingCoords, errorCoords, hasError } =
