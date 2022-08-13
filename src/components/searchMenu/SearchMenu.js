@@ -73,7 +73,7 @@ const SearchMenuContainer = styled.section`
   position: absolute;
   top: 0;
   width: 100%;
-  left: -2000px;
+  left: -4000px;
   height: 100%;
   transition: all 0.3s ease-in-out;
   z-index: 33;
@@ -101,6 +101,7 @@ const SearchMenuContainer = styled.section`
       @media (min-width: 1280px) {
         position: relative;
         transition: none;
+        width: 100%;
       }
     `}
 

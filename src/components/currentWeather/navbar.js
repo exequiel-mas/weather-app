@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { UIContext } from "../../context/UIContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CoordsContext } from "../../context/CoordsContext";
+import ToggleButton from "../searchMenu/ToggleButton";  
 
 function NavBar() {
   const { handleMenuOpened } = useContext(UIContext);
@@ -27,6 +28,7 @@ function NavBar() {
         className={`radar ${isDark ? "dark" : "light"}-sec-text`}
         onClick={() => handleMenuOpened()}
       />
+      <ToggleButton/>
       <BiCurrentLocation
         className={`geolocate ${isDark ? "dark" : "light"}-sec-text`}
         onClick={() => handleGeoActive()}

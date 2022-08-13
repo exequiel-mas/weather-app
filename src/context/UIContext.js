@@ -4,6 +4,11 @@ const UIContext = createContext();
 
 const UIContextProvider = ({ children }) => {
   const [menuOpened, setMenuOpened] = useState(false);
+  const [farenheit, setFarenheit] = useState(false);
+
+  function handleFarenheit() {
+    setFarenheit((prev) => !prev);
+  }
 
   function handleMenuOpened() {
     setMenuOpened((prev) => !prev);
@@ -11,7 +16,9 @@ const UIContextProvider = ({ children }) => {
 
   const variables = {
     menuOpened,
+    farenheit,
     handleMenuOpened,
+    handleFarenheit,
   };
 
   return <UIContext.Provider value={variables}>{children}</UIContext.Provider>;
