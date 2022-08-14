@@ -11,7 +11,9 @@ const DaysWeather = () => {
 
   return (
     <div className={`daysWeather ${isDark ? "dark" : "light"}-bg-app`}>
-      <h2>Week Weather</h2>
+      <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
+        Weather Forecast
+      </h2>
       <div className="DaysContainer">
         {weatherData.map((data, index, bigdata) => (
           <DaysWeatherBox key={index} data={data} index={index} bigdata={bigdata}  />

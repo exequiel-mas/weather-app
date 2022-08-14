@@ -45,11 +45,17 @@ const CoordsContextProvider = ({ children }) => {
   function handleInputData(e) {
     setInputData(e.target.value);
   }
-  function handleSubmitData() {
+  function handleSubmitData(e) {
+    e.preventDefault();
     setSubmitData(inputData);
   }
 
-  const { cityCoords, loadingCoords, errorCoords } = useCityCoords(submitData);
+  function resetSearch() {
+    setInputData("");
+  }
+
+  const { cityCoords, loadingCoords, errorCoords, hasError } =
+    useCityCoords(submitData);
 
   const variables = {
     weatherData,
@@ -60,12 +66,15 @@ const CoordsContextProvider = ({ children }) => {
     submitData,
     cityCoords,
     loadingCoords,
+    hasError,
     errorCoords,
     handleInputData,
     handleSubmitData,
     selectedDay,
     handleSelectedDay,
     reversedData,
+    handleGeoActive,
+    resetSearch,
   };
 
   return (

@@ -2,15 +2,24 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { IoIosArrowForward } from "react-icons/io";
 import { ThemeContext } from "../../context/ThemeContext.js";
+import { UIContext } from "../../context/UIContext.js";
+import { CoordsContext } from "../../context/CoordsContext.js";
 
 const LocationOption = ({ city, country, handleCoords, lat, lon }) => {
   const { isDark } = useContext(ThemeContext);
+  const { handleMenuOpened } = useContext(UIContext);
+  const { resetSearch } = useContext(CoordsContext);
+
   return (
     <OptionContainer
       className={`${isDark ? "dark" : "light"}-bg-box ${
         isDark ? "dark" : "light"
       }-pri-text`}
-      onClick={(event) => handleCoords(lat, lon)}
+      onClick={(event) => {
+        handleCoords(lat, lon);
+        handleMenuOpened();
+        resetSearch();
+      }}
     >
       {city}, {country}
       <IoIosArrowForward />

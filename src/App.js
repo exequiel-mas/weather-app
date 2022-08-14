@@ -8,7 +8,7 @@ import styled from "styled-components";
 import { UIContext } from "./context/UIContext";
 
 function App() {
-  const { handleMenuOpened, menuOpened } = useContext(UIContext);
+  const { menuOpened } = useContext(UIContext);
   return (
     <AppStyle menuOpened={menuOpened} className="App">
       <SearchMenu />
@@ -35,6 +35,5 @@ const AppStyle = styled.div`
     grid-template-columns: ${(props) =>
       props.menuOpened ? "1fr 1fr 1fr 1fr" : "2fr 1fr 1fr"};
     grid-template-rows: 1fr;
-    transition: all 0.3s ease-in-out;
   }
 `;

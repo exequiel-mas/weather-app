@@ -1,6 +1,12 @@
 @import "../styles/Variables.scss";
 
 .DaysWeatherBox {
+  div.loaderContainer {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .DaysWeatherBoxDiv {
     display: flex;
     flex-direction: column;

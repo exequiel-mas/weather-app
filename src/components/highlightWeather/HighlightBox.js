@@ -5,10 +5,13 @@ import "../../styles/HighlightsBox.scss";
 import useWindPos from "../../hooks/useWindPos";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CoordsContext } from "../../context/CoordsContext";
+import { BeatLoader } from "react-spinners";
 
 const HighlightBox = ({ type, title, value, unit, windP }) => {
   const { windDirection, angleRotation } = useWindPos(windP);
   const { isDark } = useContext(ThemeContext);
+  const { loadingWeatherData } = useContext(CoordsContext);
 
   return (
     <div
@@ -16,19 +19,27 @@ const HighlightBox = ({ type, title, value, unit, windP }) => {
         isDark ? "dark" : "light"
       }-pri-text `}
     >
-      <h4>{title}</h4>
-      <div className="valueContainer">
-        <p className="value">{value}</p>
-        <p className="unit">{unit}</p>
-      </div>
-      {type === "wind" && (
-        <WindDirection
-          isDark={isDark}
-          angle={angleRotation}
-          windP={windDirection}
-        />
+      {!loadingWeatherData ? (
+        <>
+          <h4>{title}</h4>
+          <div className="valueContainer">
+            <p className="value">{value}</p>
+            <p className="unit">{unit}</p>
+          </div>
+          {type === "wind" && (
+            <WindDirection
+              isDark={isDark}
+              angle={angleRotation}
+              windP={windDirection}
+            />
+          )}
+          {type === "humidity" && <HumidityMeter value={value} />}
+        </>
+      ) : (
+        <div className="loaderContainer">
+          <BeatLoader color="white" />
+        </div>
       )}
-      {type === "humidity" && <HumidityMeter value={value} />}
     </div>
   );
 };

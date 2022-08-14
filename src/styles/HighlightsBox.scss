@@ -49,6 +49,13 @@ div.boxContainer {
   align-items: center;
   padding: 22px 0px;
 
+  div.loaderContainer {
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   div.valueContainer {
     display: flex;
     justify-content: center;

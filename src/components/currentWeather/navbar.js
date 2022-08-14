@@ -6,10 +6,13 @@ import { VscColorMode } from "react-icons/vsc";
 import { useContext } from "react";
 import { UIContext } from "../../context/UIContext";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CoordsContext } from "../../context/CoordsContext";
+import ToggleButton from "../searchMenu/ToggleButton";  
 
 function NavBar() {
   const { handleMenuOpened } = useContext(UIContext);
   const { toggleTheme, isDark } = useContext(ThemeContext);
+  const { handleGeoActive } = useContext(CoordsContext);
   return (
     <div className="navbar">
       {/* <button
@@ -25,8 +28,10 @@ function NavBar() {
         className={`radar ${isDark ? "dark" : "light"}-sec-text`}
         onClick={() => handleMenuOpened()}
       />
+      <ToggleButton/>
       <BiCurrentLocation
         className={`geolocate ${isDark ? "dark" : "light"}-sec-text`}
+        onClick={() => handleGeoActive()}
       />
       <VscColorMode
         className={`colorMode ${isDark ? "dark" : "light"}-sec-text ${

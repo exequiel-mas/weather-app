@@ -8,6 +8,7 @@ export default function useCityCoords(place) {
   const [cityCoords, setCityCoords] = useState([]);
   const [errorCoords, setError] = useState(null);
   const [loadingCoords, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     if (place === null) return;
@@ -16,15 +17,21 @@ export default function useCityCoords(place) {
         setLoading(true);
         const response = await axios.get(url);
         setCityCoords(response.data);
+        if (response.data.length === 0) {
+          setHasError(true);
+          throw new Error("Try something different");
+        } else {
+          setHasError(false);
+        }
       } catch (err) {
-        setError(err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
     })();
   }, [url, place]);
 
-  return { cityCoords, errorCoords, loadingCoords };
+  return { cityCoords, errorCoords, loadingCoords, hasError };
 }
 
 // REFERENCE: https://dev.to/shaedrizwan/building-custom-hooks-in-react-to-fetch-data-4ig6
