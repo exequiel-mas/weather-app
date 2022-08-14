@@ -35,14 +35,14 @@ const DaysWeatherBox = ({data, index, bigdata, min, max}) => {
               <div className={`TempsDay ${isDark ? "dark" : "light"}-pri-text`}>
                 <p>
                 {farenheit
-                  ? `${kelvintToFarenheit(min)} °F`
-                  : `${kelvinToCelsius(min)} °C`
+                  ? `min ${kelvintToFarenheit(min)} °F`
+                  : `min ${kelvinToCelsius(min)} °C`
                 }
                 </p>
                 <p className={`MinTemp ${isDark ? "dark" : "light"}-sec-text`}>
                 {farenheit
-                  ? `${kelvintToFarenheit(max)} °F`
-                  : `${kelvinToCelsius(max)} °C`
+                  ? `max ${kelvintToFarenheit(max)} °F`
+                  : `max ${kelvinToCelsius(max)} °C`
                 }
                 </p>
               </div>
