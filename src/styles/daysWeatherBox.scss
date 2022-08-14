@@ -13,6 +13,11 @@
     align-items: center;
     padding: 15px 15px;
 
+    .sliceBox {
+      margin: 0;
+      padding: 0;
+    }
+
     @media (min-width: 1280px) {
       flex-direction: row;
       align-items: stretch;
@@ -27,15 +32,18 @@
     .ImgClima {
       width: 74px;
       height: 86px;
-      margin: 0;
-      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: auto;
 
       @media (min-width: 1280px) {
         margin-bottom: 0px;
       }
 
       img {
-        width: 74px;
+        height: 100%;
       }
     }
     .TempsDay {

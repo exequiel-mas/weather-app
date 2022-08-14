@@ -1,0 +1,32 @@
+#toggle {
+  display: none;
+}
+
+.slider {
+  display: block;
+  line-height: 16px;
+  font-size: 16px;
+  position: relative;
+  margin-top: 5px;
+  margin-left: 1px;
+}
+
+.slider::after {
+  content: "ºC";
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  display: grid;
+  place-content: center;
+  line-height: 0;
+  transition: background-color 0.25s, transform 0.25s ease-in;
+}
+
+#toggle:checked + .slider::after {
+  content: "ºF";
+  transform: translateX(16px) rotate(360deg);
+}
