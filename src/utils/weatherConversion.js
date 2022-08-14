@@ -14,4 +14,29 @@ function metersToMiles(value) {
   return (Math.round(Number(value) * 0.000621371 * 10) / 10).toString();
 }
 
-export { kelvinToCelsius, kelvintToFarenheit, msToMph, metersToMiles };
+const getDrawDescription = (description) => {
+  switch (description) {
+    case 'broken clouds':
+      return 'HeavyCloud';
+    case 'scattered clouds':
+      return 'LightCloud';
+    case 'overcast clouds':
+      return 'HeavyCloud';
+    case 'light rain':
+      return 'LightRain';
+    case 'few clouds':
+      return 'LightCloud';
+    case 'moderate rain':
+      return 'HeavyRain';
+    case 'clear sky':
+      return 'Clear';
+    case 'heavy intensity rain':
+      return 'HeavyRain';
+    case 'light snow':
+      return 'Snow';
+    default:
+      return 'LightCloud';
+  }
+}
+
+export { kelvinToCelsius, kelvintToFarenheit, msToMph, metersToMiles, getDrawDescription };

@@ -1,31 +1,8 @@
-import React from 'react';
 import '../../styles/LogoCurrent.scss';
+import React from 'react';
+import { getDrawDescription } from '../../utils/weatherConversion';
 
 const LogoCurrent = ({ drawDescription }) => {
-  const getDrawDescription = description => {
-    switch (description) {
-      case 'broken clouds':
-        return 'HeavyCloud';
-      case 'scattered clouds':
-        return 'LightCloud';
-      case 'overcast clouds':
-        return 'HeavyCloud';
-      case 'light rain':
-        return 'LightRain';
-      case 'few clouds':
-        return 'LightCloud';
-      case 'moderate rain':
-        return 'HeavyRain';
-      case 'clear sky':
-        return 'Clear';
-      case 'heavy intensity rain':
-        return 'HeavyRain';
-      case 'light snow':
-        return 'Snow';
-      default:
-        return 'LightCloud';
-    }
-  };
 
   return (
     <div className="logoContainerCurrent">

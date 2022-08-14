@@ -1,39 +1,16 @@
 import "../../styles/daysWeatherBox.scss";
+import convertDate from "../../utils/dateConversion";
 import { useContext } from "react";
 import { CoordsContext } from "../../context/CoordsContext.js";
 import { ThemeContext } from "../../context/ThemeContext.js";
-import { kelvinToCelsius } from "../../utils/weatherConversion";
-import convertDate from "../../utils/dateConversion";
+import { kelvinToCelsius, kelvintToFarenheit, getDrawDescription } from "../../utils/weatherConversion";
 import { BeatLoader } from "react-spinners";
+import { UIContext } from "../../context/UIContext";
 
-const DaysWeatherBox = ({data, index, bigdata}) => {
-  const { handleSelectedDay, loadingWeatherData } = useContext(CoordsContext);
+const DaysWeatherBox = ({data, index, bigdata, min, max}) => {
+  const { handleSelectedDay, loadingWeatherData} = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
-
-  const getDrawDescription = description => {
-    switch (description) {
-      case 'broken clouds':
-        return 'HeavyCloud';
-      case 'scattered clouds':
-        return 'LightCloud';
-      case 'overcast clouds':
-        return 'HeavyCloud';
-      case 'light rain':
-        return 'LightRain';
-      case 'few clouds':
-        return 'LightCloud';
-      case 'moderate rain':
-        return 'HeavyRain';
-      case 'clear sky':
-        return 'Clear';
-      case 'heavy intensity rain':
-        return 'HeavyRain';
-      case 'light snow':
-        return 'Snow';
-      default:
-        return 'LightCloud';
-    }
-  };
+  const { farenheit } = useContext(UIContext);
 
   return (
     <div
@@ -45,9 +22,9 @@ const DaysWeatherBox = ({data, index, bigdata}) => {
               <div className="sliceBox">
                 <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
                   { index === 0
-                    ? <p>Today</p>
+                    ? "Today"
                     : index === 1
-                    ? <p>Tomorrow</p>
+                    ? "Tomorrow"
                     : convertDate(data.dt_txt)
                   }
                 </h2>
@@ -56,9 +33,17 @@ const DaysWeatherBox = ({data, index, bigdata}) => {
                 </div>
               </div>
               <div className={`TempsDay ${isDark ? "dark" : "light"}-pri-text`}>
-                <p>{kelvinToCelsius(data.main.temp_min)}°c</p>
+                <p>
+                {farenheit
+                  ? `${kelvintToFarenheit(min)} °F`
+                  : `${kelvinToCelsius(min)} °C`
+                }
+                </p>
                 <p className={`MinTemp ${isDark ? "dark" : "light"}-sec-text`}>
-                  {kelvinToCelsius(data.main.temp_max)}°c
+                {farenheit
+                  ? `${kelvintToFarenheit(max)} °F`
+                  : `${kelvinToCelsius(max)} °C`
+                }
                 </p>
               </div>
             </div>

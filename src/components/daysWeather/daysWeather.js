@@ -16,7 +16,7 @@ const DaysWeather = () => {
       </h2>
       <div className="DaysContainer">
         {weatherData.map((data, index, bigdata) => (
-          <DaysWeatherBox key={index} data={data} index={index} bigdata={bigdata}  />
+          <DaysWeatherBox key={index} data={data} index={index} bigdata={bigdata} min={bigdata[index].main.temp_min} max={bigdata[index].main.temp_max}/>
         ))}
       </div>
     </div>
