@@ -10,10 +10,19 @@ const CoordsContextProvider = ({ children }) => {
   const [geoActive, setGeoActive] = useState(true);
   const { latitude, longitude } = useGeoLocation();
   const [coords, setCoords] = useState({ lat: 0, lon: 0 });
+  const [inputData, setInputData] = useState("");
+  const [submitData, setSubmitData] = useState(null);
+  const { reversedData } = useReverseGeocoding(coords.lat, coords.lon);
+  const {
+    weatherData,
+    errorWeatherData,
+    loadingWeatherData,
+    selectedDay,
+    handleSelectedDay,
+  } = useWeatherData(coords.lat, coords.lon);
 
-  function handleGeoActive() {
-    setGeoActive((prev) => !prev);
-  }
+  const { cityCoords, loadingCoords, errorCoords, hasError } =
+    useCityCoords(submitData);
 
   useEffect(
     () =>
@@ -23,24 +32,14 @@ const CoordsContextProvider = ({ children }) => {
     [latitude, longitude, geoActive, coords.lat, coords.lon]
   );
 
-  const {
-    weatherData,
-    errorWeatherData,
-    loadingWeatherData,
-    selectedDay,
-    handleSelectedDay,
-  } = useWeatherData(coords.lat, coords.lon);
-
-  const { reversedData } = useReverseGeocoding(coords.lat, coords.lon);
+  function handleGeoActive() {
+    setGeoActive((prev) => !prev);
+  }
 
   function handleCoords(lat, lon) {
     handleGeoActive();
     setCoords({ lat: lat, lon: lon });
   }
-  /*--------------------- */
-
-  const [inputData, setInputData] = useState("");
-  const [submitData, setSubmitData] = useState(null);
 
   function handleInputData(e) {
     setInputData(e.target.value);
@@ -53,9 +52,6 @@ const CoordsContextProvider = ({ children }) => {
   function resetSearch() {
     setInputData("");
   }
-
-  const { cityCoords, loadingCoords, errorCoords, hasError } =
-    useCityCoords(submitData);
 
   const variables = {
     weatherData,

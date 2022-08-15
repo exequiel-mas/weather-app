@@ -1,11 +1,10 @@
+import React, { useContext } from "react";
 import "../../styles/daysWeather.scss";
-import DaysWeatherBox from "./daysWeatherBox";
-import { useContext } from "react";
+import DaysWeatherBox from "./DaysWeatherBox";
 import { CoordsContext } from "../../context/CoordsContext";
 import { ThemeContext } from "../../context/ThemeContext.js";
 
 const DaysWeather = () => {
-
   const { weatherData } = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
 
@@ -16,7 +15,14 @@ const DaysWeather = () => {
       </h2>
       <div className="DaysContainer">
         {weatherData.map((data, index, bigdata) => (
-          <DaysWeatherBox key={index} data={data} index={index} bigdata={bigdata} min={bigdata[index].main.temp_min} max={bigdata[index].main.temp_max}/>
+          <DaysWeatherBox
+            key={index}
+            data={data}
+            index={index}
+            bigdata={bigdata}
+            min={bigdata[index].main.temp_min}
+            max={bigdata[index].main.temp_max}
+          />
         ))}
       </div>
     </div>

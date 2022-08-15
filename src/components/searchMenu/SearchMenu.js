@@ -1,11 +1,11 @@
-import { CoordsContext } from "../../context/CoordsContext";
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import { IoMdClose, IoMdSearch } from "react-icons/io";
 import ListOfPlaces from "./ListOfPlaces";
 import { UIContext } from "../../context/UIContext";
+import { CoordsContext } from "../../context/CoordsContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import { BeatLoader } from "react-spinners";
+import { IoMdClose, IoMdSearch } from "react-icons/io";
 
 const SearchMenu = () => {
   const { handleMenuOpened, menuOpened } = useContext(UIContext);
@@ -45,9 +45,6 @@ const SearchMenu = () => {
           name="inputData"
           value={inputData}
         />
-        {/* <ButtonStyle isDark={isDark} onClick={(e) => handleSubmitData(e)}>
-          Search
-        </ButtonStyle> */}
       </form>
       {hasError && (
         <h2 className={`${isDark ? "dark" : "light"}-pri-text`}>
@@ -132,8 +129,6 @@ const SearchMenuContainer = styled.section`
 export default SearchMenu;
 
 const InputStyle = styled.input`
-  /* background-color: ${(props) => (props.isDark ? "#1e213a" : "#0d85da")}; */
-
   flex: 1 1;
   border: none;
   padding: 14px 49px 14px 14px;
@@ -149,17 +144,3 @@ const InputStyle = styled.input`
     outline: none;
   }
 `;
-
-// En caso de que no vaya mas con el boton esto se eliminaria
-// const ButtonStyle = styled.button`
-//   background-color: ${(props) => (props.isDark ? "#3c47e9" : "#294F7A")};
-//   height: 100%;
-//   margin-left: 12px;
-//   padding: 14px;
-//   color: white;
-//   font-size: Raleway;
-//   font-weight: 600;
-//   font-size: 1rem;
-//   border: none;
-//   cursor: pointer;
-// `;

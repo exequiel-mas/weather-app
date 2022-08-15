@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../styles/ToggleButton2.scss";
-import { useContext } from "react";
 import { UIContext } from "../../context/UIContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import styled from "styled-components";

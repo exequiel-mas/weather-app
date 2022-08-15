@@ -39,5 +39,3 @@ export default function useWeatherData(lat, lon) {
     handleSelectedDay,
   };
 }
-
-// REFERENCE: https://dev.to/shaedrizwan/building-custom-hooks-in-react-to-fetch-data-4ig6

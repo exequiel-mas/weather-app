@@ -26,5 +26,3 @@ export default function useReverseGeocoding(lat, lon) {
 
   return { reversedData, errorReversedData, loadingReversedData };
 }
-
-// REFERENCE: https://myprojects.geoapify.com/api/R0yOXUJ3OVTVrz2jFRvD/keys

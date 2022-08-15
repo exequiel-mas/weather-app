@@ -33,5 +33,3 @@ export default function useCityCoords(place) {
 
   return { cityCoords, errorCoords, loadingCoords, hasError };
 }
-
-// REFERENCE: https://dev.to/shaedrizwan/building-custom-hooks-in-react-to-fetch-data-4ig6

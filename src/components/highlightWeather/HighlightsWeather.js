@@ -1,5 +1,5 @@
-import ListOfHighlights from "./ListOfHighlights";
 import React, { useContext } from "react";
+import ListOfHighlights from "./ListOfHighlights";
 import "../../styles/highlightsWeather.scss";
 import { ThemeContext } from "../../context/ThemeContext";
 

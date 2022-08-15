@@ -1,18 +1,17 @@
-import { useContext } from "react";
-import { CoordsContext } from "../../context/CoordsContext";
-import NavBar from "./navbar";
+import React, { useContext } from "react";
+import NavBar from "./Navbar";
 import LogoCurrent from "./LogoCurrent";
 import TempCurrent from "./TempCurrent";
 import FooterCurrent from "./FooterCurrent";
-import "../../styles/currentWeather.scss";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CoordsContext } from "../../context/CoordsContext";
+import "../../styles/currentWeather.scss";
 
 function CurrentWeather() {
-  const { weatherData, handleSelectedDay, selectedDay } = useContext(CoordsContext);
+  const { weatherData, handleSelectedDay, selectedDay } =
+    useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
   const weather = weatherData[selectedDay];
-  // console.log(weather);
-  // weatherData.forEach((el) => console.log(convertDate(el.dt_txt)));
 
   return (
     <div
@@ -22,7 +21,7 @@ function CurrentWeather() {
       onClick={() => handleSelectedDay(0)}
     >
       <div className="bodyCurrent">
-        <NavBar/>
+        <NavBar />
         <LogoCurrent drawDescription={`${weather?.weather[0].description}`} />
         <TempCurrent />
         <FooterCurrent />

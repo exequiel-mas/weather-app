@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TiLocationArrow } from "react-icons/ti";
 import styled from "styled-components";
 import "../../styles/HighlightsBox.scss";
 import useWindPos from "../../hooks/useWindPos";
-import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CoordsContext } from "../../context/CoordsContext";
 import { BeatLoader } from "react-spinners";
