@@ -24,7 +24,6 @@ function CurrentWeather() {
       className={`currentWeather-${
         isDark ? "dark dark" : "light light"
       }-bg-box`}
-      onClick={() => handleSelectedDay(0)}
     >
       {!loadingWeatherData ? (
         <div>
