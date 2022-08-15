@@ -9,13 +9,8 @@ import "../../styles/currentWeather.scss";
 import { BeatLoader } from "react-spinners";
 
 function CurrentWeather() {
-  const {
-    weatherData,
-    handleSelectedDay,
-    selectedDay,
-    loadingWeatherData,
-    errorWeatherData,
-  } = useContext(CoordsContext);
+  const { weatherData, selectedDay, loadingWeatherData, errorWeatherData } =
+    useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
   const weather = weatherData[selectedDay];
 

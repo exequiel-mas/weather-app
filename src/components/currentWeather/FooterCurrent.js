@@ -39,7 +39,7 @@ const FooterCurrent = () => {
         </div>
       ) : (
         <div className="locationData">
-          <BeatLoader />
+          <BeatLoader color="white" />
         </div>
       )}
     </>
