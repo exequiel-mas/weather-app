@@ -9,13 +9,8 @@ import "../../styles/FooterCurrent.scss";
 import { BeatLoader } from "react-spinners";
 
 const FooterCurrent = () => {
-  const {
-    reversedData,
-    weatherData,
-    selectedDay,
-    loadingReversedData,
-    errorReversedData,
-  } = useContext(CoordsContext);
+  const { reversedData, weatherData, selectedDay, loadingReversedData } =
+    useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
 
   let day = weatherData[selectedDay]?.dt_txt;
