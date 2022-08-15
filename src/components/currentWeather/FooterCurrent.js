@@ -4,6 +4,7 @@ import { CoordsContext } from "../../context/CoordsContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import { IoLocationSharp } from "react-icons/io5";
 import convertDate from "../../utils/dateConversion";
+import { getStringDate } from "../../utils/weatherConversion";
 import "../../styles/FooterCurrent.scss";
 import { BeatLoader } from "react-spinners";
 
@@ -22,12 +23,11 @@ const FooterCurrent = () => {
   return (
     <>
       <div className={`currentDataText ${isDark ? "dark" : "light"}-sec-text`}>
-        {selectedDay === 0 ? (
-          <p>Today ·</p>
-        ) : selectedDay === 1 ? (
-          <p>Tomorrow ·</p>
-        ) : (
-          <p></p>
+        {getStringDate(selectedDay) && (
+          <p>
+            {getStringDate(selectedDay)}
+            <strong>·</strong>
+          </p>
         )}
         <p>{day ? convertDate(day) : " "}</p>
       </div>

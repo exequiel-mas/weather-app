@@ -9,9 +9,11 @@
   padding: 16px;
   cursor: pointer;
   user-select: none;
-  p:nth-child(2n) {
-    margin: 0px 16px;
+  p {
     font-weight: 600;
+    strong {
+      margin: 0px 14px;
+    }
   }
 }
 

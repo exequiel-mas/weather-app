@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import ListOfHighlights from "./ListOfHighlights";
 import "../../styles/highlightsWeather.scss";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CoordsContext } from "../../context/CoordsContext";
+import { getStringDate } from "../../utils/weatherConversion";
 
 function HighlightsWeather() {
   const { isDark } = useContext(ThemeContext);
+  const { selectedDay } = useContext(CoordsContext);
 
   return (
     <div
@@ -12,7 +15,10 @@ function HighlightsWeather() {
         isDark ? "dark" : "light"
       }-pri-text`}
     >
-      <h2>Today's Highlights</h2>
+      <h2>
+        {getStringDate(selectedDay) && getStringDate(selectedDay) + "'s"}{" "}
+        Highlights
+      </h2>
       <ListOfHighlights />
     </div>
   );
