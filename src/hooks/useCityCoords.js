@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useCityCoords(place) {
   const apiKey = "c14075cfcb8e6a63e07085ff4b3fb23c";
-  const url = `http://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/geo/1.0/direct?q=${place}&limit=5&appid=${apiKey}`;
 
   const [cityCoords, setCityCoords] = useState([]);
   const [errorCoords, setError] = useState(null);

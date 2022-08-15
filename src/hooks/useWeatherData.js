@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useWeatherData(lat, lon) {
   const apiKey = "c14075cfcb8e6a63e07085ff4b3fb23c";
-  const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
   const [weatherData, setWeatherData] = useState([]);
   const [errorWeatherData, setError] = useState(null);
