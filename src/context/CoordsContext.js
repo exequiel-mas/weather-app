@@ -12,7 +12,8 @@ const CoordsContextProvider = ({ children }) => {
   const [coords, setCoords] = useState({ lat: 0, lon: 0 });
   const [inputData, setInputData] = useState("");
   const [submitData, setSubmitData] = useState(null);
-  const { reversedData } = useReverseGeocoding(coords.lat, coords.lon);
+  const { reversedData, errorReversedData, loadingReversedData } =
+    useReverseGeocoding(coords.lat, coords.lon);
   const {
     weatherData,
     errorWeatherData,
@@ -71,6 +72,8 @@ const CoordsContextProvider = ({ children }) => {
     reversedData,
     handleGeoActive,
     resetSearch,
+    errorReversedData,
+    loadingReversedData,
   };
 
   return (

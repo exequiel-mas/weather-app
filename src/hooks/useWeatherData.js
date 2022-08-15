@@ -24,7 +24,7 @@ export default function useWeatherData(lat, lon) {
           response.data.list.filter((timestamp, index) => index % 7 === 0)
         );
       } catch (err) {
-        setError(err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }

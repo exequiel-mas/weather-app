@@ -1,13 +1,13 @@
-import "../../styles/TempCurrent.scss";
 import React from "react";
 import { useContext } from "react";
-import { CoordsContext } from "../../context/CoordsContext.js";
 import {
   kelvinToCelsius,
   kelvintToFarenheit,
 } from "../../utils/weatherConversion";
+import { CoordsContext } from "../../context/CoordsContext.js";
 import { ThemeContext } from "../../context/ThemeContext";
 import { UIContext } from "../../context/UIContext";
+import "../../styles/TempCurrent.scss";
 
 const TempCurrent = () => {
   const { weatherData, selectedDay } = useContext(CoordsContext);
@@ -22,9 +22,7 @@ const TempCurrent = () => {
           : kelvinToCelsius(weatherData[selectedDay]?.main.temp)}
       </p>
       <p className={`tempUnity ${isDark ? "dark" : "light"}-sec-text`}>
-        {farenheit
-          ? "°F"
-          : "°C"}
+        {farenheit ? "°F" : "°C"}
       </p>
     </div>
   );

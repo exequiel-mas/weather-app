@@ -38,3 +38,15 @@
     background-position: 50% 20%;
   }
 }
+
+div.loaderContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div div h2.msgError {
+  color: darkred;
+  text-align: center;
+}

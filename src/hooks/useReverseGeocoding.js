@@ -17,7 +17,7 @@ export default function useReverseGeocoding(lat, lon) {
         const response = await axios.get(url);
         setReversedData(response.data.features[0].properties);
       } catch (err) {
-        setError(err);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
