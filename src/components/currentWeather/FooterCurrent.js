@@ -31,7 +31,6 @@ const FooterCurrent = () => {
         )}
         <p>{day ? convertDate(day) : " "}</p>
       </div>
-      {errorReversedData && <h4>{errorReversedData}</h4>}
       {!loadingReversedData ? (
         <div className={`locationData ${isDark ? "dark" : "light"}-sec-text`}>
           <IoLocationSharp />
