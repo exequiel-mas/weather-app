@@ -7,7 +7,7 @@ import { kelvinToCelsius, kelvintToFarenheit, getDrawDescription } from "../../u
 import { BeatLoader } from "react-spinners";
 import { UIContext } from "../../context/UIContext";
 
-const DaysWeatherBox = ({data, index, bigdata, min, max}) => {
+const DaysWeatherBox = ({data, index, min, max}) => {
   const { handleSelectedDay, loadingWeatherData} = useContext(CoordsContext);
   const { isDark } = useContext(ThemeContext);
   const { farenheit } = useContext(UIContext);

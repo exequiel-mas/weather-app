@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import NavBar from "./Navbar";
+import NavBar from "./navbar"
 import LogoCurrent from "./LogoCurrent";
 import TempCurrent from "./TempCurrent";
 import FooterCurrent from "./FooterCurrent";

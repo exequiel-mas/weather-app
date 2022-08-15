@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./App.scss";
 import CurrentWeather from "./components/currentWeather/CurrentWeather";
-import DaysWeather from "./components/daysWeather/DaysWeather";
+import DaysWeather from "./components/daysWeather/daysWeather"
 import HighlightWeather from "./components/highlightWeather/HighlightsWeather";
 import SearchMenu from "./components/searchMenu/SearchMenu";
 import styled from "styled-components";
